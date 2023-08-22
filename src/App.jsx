@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import beehiveLogo from "./assets/img/beehive.png";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,16 +13,7 @@ import "./index.css";
 import NoMatch from "./components/404";
 import Login from "./components/authi";
 import Nav from "./components/navbar";
-
-const Home = () => {
-  return (
-    <div style={{ padding: 20 }}>
-      <h2>Home</h2>
-      <img width={60} height={60} src={beehiveLogo} />
-      <p>Welcome to Bidhive</p>
-    </div>
-  );
-};
+import Home from "./components/home";
 
 const App = () => {
   const [users, setUsers] = useState([]);
