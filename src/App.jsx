@@ -15,6 +15,7 @@ import Login from "./components/authi";
 import Nav from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
+import Archive from "./components/archive";
 
 const userDataTest = {
   name: "John",
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile users={users} />} />
+        <Route path="/archive" element={<Archive />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
