@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import beehiveLogo from './assets/beehive.png'
+import beehiveLogo from './assets/img/beehive.png'
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from "react-router-dom";
 
 import "./App.css";
@@ -11,6 +11,7 @@ const Home=()=> {
 	return (
 		<div style={{ padding: 20 }}>
 			<h2>Home</h2>
+      <img width={60} height= {60}src={beehiveLogo}/>
 			<p>Welcome to Bidhive</p>
 		</div>
 	);
