@@ -47,8 +47,7 @@ export default defineConfig({
   },
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
-    modules: ['node_modules'],
-    extensions: ['.js', '.jsx', '.ts', '.tsx', ...]
+
   },
  
   base: './',
