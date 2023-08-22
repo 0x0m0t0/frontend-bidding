@@ -3,7 +3,7 @@ import beehiveLogo from './assets/img/beehive.png'
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from "react-router-dom";
 
 import "./App.css";
-import Login from "./components/login.jsx";
+import Login from "./components/login";
 import NoMatch from "./components/404";
 // import Example from "./components/navbar";
 
