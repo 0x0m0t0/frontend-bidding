@@ -14,6 +14,13 @@ import NoMatch from "./components/404";
 import Login from "./components/authi";
 import Nav from "./components/navbar";
 import Home from "./components/home";
+import Profile from "./components/profile";
+
+const userDataTest = {
+  name: "John",
+  hobbies: "running",
+  email: "jackiechan@hollywood.xyz",
+};
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -38,6 +45,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile users={users} />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
