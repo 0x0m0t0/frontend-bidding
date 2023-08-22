@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import beehiveLogo from './assets/img/beehive.png'
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from "react-router-dom";
 
-import "./App.css";
+import "./index.css";
 
 import NoMatch from "./components/404";
 import Login from "./components/authi";
-// import Example from "./components/navbar";
+import Example from "./components/navbar";
 
 const Home=()=> {
 	return (
@@ -39,7 +39,13 @@ const App = () => {
 
 	return (
 		<Router>
+
 			<nav style={{ margin: 10 }}>
+
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+        <Example/>
 				<Link to="/" style={{ padding: 5 }}>
 					Home
 				</Link>
