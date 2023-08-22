@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from 
 import "./App.css";
 import Login from "./components/login.jsx";
 import NoMatch from "./components/404";
-
+// import Example from "./components/navbar";
 
 const Home=()=> {
 	return (
@@ -21,20 +21,20 @@ const Home=()=> {
 const App = () => {
 	const [users, setUsers] = useState([]);
 
-	// const fetchData = async () => {
-	// 	await fetch("http://localhost:3002/api")
-	// 		.then((response) => {
-	// 			console.log(response);
-	// 			return response.json();
-	// 		})
-	// 		.then((data) => {
-	// 			setUsers(data);
-	// 		});
-	// };
+	const fetchData = async () => {
+		await fetch("https://auction.oxomoto.co")
+			.then((response) => {
+				console.log(response);
+				return response.json();
+			})
+			.then((data) => {
+				setUsers(data);
+			});
+	};
 
-	// useEffect(() => {
-	// 	fetchData();
-	// }, []);
+	useEffect(() => {
+		fetchData();
+	}, []);
 
 	return (
 		<Router>
