@@ -3,8 +3,9 @@ import beehiveLogo from './assets/img/beehive.png'
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from "react-router-dom";
 
 import "./App.css";
-import Login from "./components/login";
+
 import NoMatch from "./components/404";
+import Login from "./components/login";
 // import Example from "./components/navbar";
 
 const Home=()=> {
@@ -22,10 +23,10 @@ const App = () => {
 	const [users, setUsers] = useState([]);
 
 	const fetchData = async () => {
-		await fetch("https://auction.oxomoto.co")
+		await fetch("https://auction.oxomoto.co/")
 			.then((response) => {
 				console.log(response);
-				return response.json();
+				// return response.json();
 			})
 			.then((data) => {
 				setUsers(data);
