@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from 
 import "./App.css";
 
 import NoMatch from "./components/404";
-import Login from "./components/login";
+import Login from "components/login";
 // import Example from "./components/navbar";
 
 const Home=()=> {
