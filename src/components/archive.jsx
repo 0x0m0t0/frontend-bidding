@@ -23,14 +23,18 @@ const Archive = () => {
     <>
       <h1>Hello</h1>
       <div className="flex flex-col items-center">
-        {dummyArchive.map((item) => (
-          <h2
-            className="w-60 p-2 bg-yellow-400 m-2 rounded-sm"
-            key={item.title}
-          >
-            {item.title}
-          </h2>
-        ))}
+        {dummyArchive?.length > 0 ? (
+          dummyArchive.map((item) => (
+            <h2
+              className="w-60 p-2 bg-yellow-400 m-2 rounded-sm"
+              key={item.title}
+            >
+              {item.title}
+            </h2>
+          ))
+        ) : (
+          <h2 className="empty">Nothing here</h2>
+        )}
       </div>
     </>
   );
