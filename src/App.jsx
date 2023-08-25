@@ -17,6 +17,7 @@ import Nav from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
+import Test from "./components/test_protect";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -29,18 +30,18 @@ const userDataTest = {
 const App = () => {
   const [users, setUsers] = useState([]);
 
-  const fetchData = () => {
-    fetch(endpoint)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data);
-      });
-  };
+  // const fetchData = () => {
+  //   fetch(endpoint)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setUsers(data);
+  //     });
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <Router>
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile users={users} />} />
         <Route path="/archive" element={<Archive />} />
+        <Route path="/test" element={<Test />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>

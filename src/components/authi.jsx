@@ -3,7 +3,7 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Login = () => {
   const [data, setData] = useState(null);
-  const [name, setName] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [loading, setLoading] = useState(true);
@@ -11,11 +11,10 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, password);
-    fetch(endpoint + "signup", {
+    console.log(email, password);
+    fetch(`${endpoint}/login`, {
       method: "POST",
       body: JSON.stringify({
-        name: name,
         email: email,
         password: password,
       }),
@@ -25,9 +24,9 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((post) => {
-        setName("");
         setEmail("");
         setPassword("");
+        console.log(post.token);
       })
       .catch((err) => {
         console.log(err.message);
@@ -40,18 +39,6 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="name"
-          onChange={(e) => {
-            e.preventDefault();
-            setName(e.target.value);
-          }}
-        />
-      </label>
-      <br />
       <label>
         Email:
         <input
