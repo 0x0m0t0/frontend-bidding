@@ -1,8 +1,9 @@
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Login", href: "/login", current: false },
-  { name: "Archive", href: "/archive", current: false },
-  { name: "Profile", href: "/profile", current: false },
+  { name: "Sign Up", href: "/signup", current: false },
+  // { name: "Login", href: "/login", current: false },
+  // { name: "Archive", href: "/archive", current: false },
+  // { name: "Profile", href: "/profile", current: false },
 ];
 
 function classNames(...classes) {
