@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { CookiesProvider, useCookies } from "react-cookie";
+
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Test = () => {
+  const [cookies, setCookie] = useCookies(["user"]);
   const [protect, setProtect] = useState([]);
 
   useEffect(() => {
@@ -9,8 +12,7 @@ const Test = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        authentication:
-          "eyJhbGciOiJIUzI1NiJ9.MjEy.FmgsmEXDPUgM2lkxf3jr6AVpk5v8-U2xA7Y0ldyPtFc",
+        authentication: cookies.user,
       },
     })
       .then((res) => res)
