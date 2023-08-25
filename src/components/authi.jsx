@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { CookiesProvider, useCookies } from "react-cookie";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Login = () => {
   const [data, setData] = useState(null);
-
+  const [cookies, setCookie] = useCookies(["user"]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [loading, setLoading] = useState(true);
@@ -26,7 +27,9 @@ const Login = () => {
       .then((post) => {
         setEmail("");
         setPassword("");
+        setCookie("user", post.token, { path: "/" });
         console.log(post.token);
+        console.log(cookies.user);
       })
       .catch((err) => {
         console.log(err.message);
