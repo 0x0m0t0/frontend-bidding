@@ -9,6 +9,8 @@ const Test = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        authentication:
+          "eyJhbGciOiJIUzI1NiJ9.MjEy.FmgsmEXDPUgM2lkxf3jr6AVpk5v8-U2xA7Y0ldyPtFc",
       },
     })
       .then((res) => res)
