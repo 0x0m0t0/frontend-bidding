@@ -3,24 +3,6 @@ import { CookiesProvider, useCookies } from "react-cookie";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-const No = () => {
-  if (cookies.user) {
-    fetch(`${endpoint}/historic/1`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((res) => res.json())
-      .then((post) => {
-        console.log(post);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-};
-
 const NewItem = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
@@ -39,6 +21,24 @@ const NewItem = () => {
       ...prevForm,
       [formKey]: value,
     }));
+  };
+
+  const No = () => {
+    if (cookies.user) {
+      fetch(`${endpoint}/historic/1`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((post) => {
+          console.log(post);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -68,7 +68,8 @@ const NewItem = () => {
   };
 
   return (
-    <form onSubmit={({ handleSubmit }, { No })}>
+    <form onSubmit={handleSubmit}>
+      <No />
       <label>
         Item name:
         <input
