@@ -11,8 +11,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, password);
-    fetch(endpoint + "signup", {
+    console.log(email, password);
+    fetch(`${endpoint}/signup`, {
       method: "POST",
       body: JSON.stringify({
         name: name,
