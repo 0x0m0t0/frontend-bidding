@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Signup = () => {
-  const [data, setData] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,15 +25,12 @@ const Signup = () => {
         setName("");
         setEmail("");
         setPassword("");
+        console.log(post);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
-
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
 
   return (
     <form onSubmit={handleSubmit}>
