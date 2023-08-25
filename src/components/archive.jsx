@@ -33,7 +33,7 @@ const Archive = () => {
             </h2>
           ))
         ) : (
-          <h2 className="empty">Nothing here</h2>
+          <h2 className="empty">Nothing to be found here</h2>
         )}
       </div>
     </>
