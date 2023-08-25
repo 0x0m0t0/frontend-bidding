@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Login = () => {
   const [data, setData] = useState(null);
@@ -11,7 +12,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, password);
-    fetch("https://auction.oxomoto.co/signup", {
+    fetch(endpoint + "signup", {
       method: "POST",
       body: JSON.stringify({
         name: name,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-const Login = () => {
+const Signup = () => {
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, password);
-    fetch("https://auction.oxomoto.co/signup", {
+    fetch(endpoint + "signup", {
       method: "POST",
       body: JSON.stringify({
         name: name,
@@ -42,6 +43,7 @@ const Login = () => {
         <input
           type="text"
           name="name"
+          value={name}
           onChange={(e) => {
             e.preventDefault();
             setName(e.target.value);
@@ -54,6 +56,7 @@ const Login = () => {
         <input
           type="text"
           name="name"
+          value={email}
           onChange={(e) => {
             e.preventDefault();
             setEmail(e.target.value);
@@ -68,6 +71,7 @@ const Login = () => {
         <input
           type="text"
           name="post"
+          value={password}
           onChange={(e) => {
             e.preventDefault();
             setPassword(e.target.value);
@@ -80,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

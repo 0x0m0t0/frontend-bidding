@@ -12,10 +12,13 @@ import "./index.css";
 
 import NoMatch from "./components/404";
 import Login from "./components/authi";
+import Signup from "./components/signup";
 import Nav from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
+
+const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const userDataTest = {
   name: "John",
@@ -27,7 +30,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   const fetchData = () => {
-    fetch("https://auction.oxomoto.co/")
+    fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -46,6 +49,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile users={users} />} />
         <Route path="/archive" element={<Archive />} />
         <Route path="*" element={<NoMatch />} />
