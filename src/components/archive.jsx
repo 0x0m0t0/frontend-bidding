@@ -51,7 +51,7 @@ const Archive = () => {
           .filter((obj) => obj.id_seller === 129)
           .map((item) => (
             <div key={item.id}>
-              <img src={item?.cover_lobby} />
+              <img width={200} height={200} src={item?.cover_lobby} />
               <h2 className="w-60 p-2 bg-yellow-400 m-2 rounded-sm">
                 {item.name}
               </h2>

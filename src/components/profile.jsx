@@ -78,10 +78,14 @@ const Profile = ({ users }) => {
         >
           <h3 className="font-semibold">Auctions</h3>
           {auctions.map((item) => (
-            <div className="flex" key={item?.created_at + item?.id}>
+            <div
+              className="flex border rounded border-green-100 m-2"
+              key={item?.created_at + item?.id}
+            >
               <div>
                 <h2>{item?.name}</h2>
                 <p className="bg-green-800">{item?.description}</p>
+                <p className="bg-green-800">{item?.created_at}</p>
               </div>
 
               <div>
