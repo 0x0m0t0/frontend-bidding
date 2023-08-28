@@ -19,6 +19,7 @@ import Profile from "./components/profile";
 import Archive from "./components/archive";
 import Test from "./components/test_protect";
 import NewItem from "./components/newitem";
+import LiveBid from "./components/live_bid";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -56,6 +57,8 @@ const App = () => {
         <Route path="/archive" element={<Archive />} />
         <Route path="/test" element={<Test />} />
         <Route path="/newitem" element={<NewItem />} />
+
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
