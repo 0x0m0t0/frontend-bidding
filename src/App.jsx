@@ -56,6 +56,7 @@ const App = () => {
         <Route path="/archive" element={<Archive />} />
         <Route path="/test" element={<Test />} />
         <Route path="/newitem" element={<NewItem />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>

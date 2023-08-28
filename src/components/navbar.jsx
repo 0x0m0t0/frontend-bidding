@@ -4,8 +4,8 @@ const navigation = [
   { name: "Login", href: "/login", current: false },
   { name: "Protected", href: "/test", current: false },
   { name: "New Item", href: "/newitem", current: false },
-  // { name: "Archive", href: "/archive", current: false },
-  // { name: "Profile", href: "/profile", current: false },
+  { name: "Archive", href: "/archive", current: false },
+  { name: "Profile", href: "/profile", current: false },
 ];
 
 function classNames(...classes) {
