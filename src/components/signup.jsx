@@ -30,6 +30,8 @@ const Signup = () => {
       .catch((err) => {
         console.log(err.message);
       });
+
+    return <h1>Ok, you signed up chief!</h1>;
   };
 
   return (
