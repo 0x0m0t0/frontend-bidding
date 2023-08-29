@@ -3,7 +3,7 @@ import user from "../utils/user_account";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 //// To change
-let userId = 130;
+let userId = 1;
 
 const Profile = ({ users }) => {
   const [userInfo, setUserInfo] = useState([]);
