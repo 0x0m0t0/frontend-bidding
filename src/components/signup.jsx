@@ -20,7 +20,14 @@ const Signup = (props) => {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          console.log(res.status);
+          alert(`Err ${res.status}: Wrong email or password`);
+        }
+        // else if (!res.ok) throw new err(res.status);
+        else return res.json();
+      })
       .then((post) => {
         setName("");
         setEmail("");
@@ -28,6 +35,7 @@ const Signup = (props) => {
         console.log(post);
       })
       .catch((err) => {
+        console.log(err.code);
         console.log(err.message);
       });
 
