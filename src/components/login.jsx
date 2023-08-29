@@ -10,7 +10,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
     fetch(`${endpoint}/login`, {
       method: "POST",
       body: JSON.stringify({
