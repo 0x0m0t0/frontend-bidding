@@ -5,6 +5,7 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Login = (props) => {
   const [cookies, setCookie] = useCookies(["user"]);
+  const [cookiesUser, setCookieUser] = useCookies(["user_id"]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,7 +35,10 @@ const Login = (props) => {
         setEmail("");
         setPassword("");
         setCookie("user", post.token, { path: "/" });
+        setCookieUser("user_id", post.user_id, { path: "/" });
+        console.log(post);
         console.log(post.token);
+        console.log(post.user_id);
         console.log(cookies.user);
       })
       .catch((err) => {
