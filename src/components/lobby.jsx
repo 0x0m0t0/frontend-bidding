@@ -37,10 +37,10 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
-        console.log(data);
+        
       })
       .catch((err) => {
-        console.log(err.message);
+        return err; 
       });
   };
 
@@ -57,17 +57,15 @@ const Lobby = () => {
       })
       .then((data) => {
         setMessages(data);
-        console.log(data);
+      
       })
       .catch((err) => {
-        console.log(err.message);
-      });
+        return err;       });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(messages)
-    console.log("helloooo" + cookies.user);
+
     if (cookies.user) {
       fetch(`${endpoint}/chat`, {
         method: "POST",
@@ -80,7 +78,7 @@ const Lobby = () => {
       })
         .then((res) => res.json())
         .then((post) => {
-          console.log(post);
+          
         })
         .catch((err) => {
           return err; 
@@ -91,8 +89,13 @@ const Lobby = () => {
     }
   };
 
+
   useEffect(() => {
     lobbyData();
+  }, []);
+
+
+  useEffect(() => {
     chatData();
   }, [handleSubmit]);
 
