@@ -23,7 +23,7 @@ const Signup = (props) => {
       .then((res) => {
         if (res.status === 401) {
           console.log(res.status);
-          alert(`Err ${res.status}: Wrong email or password`);
+          alert(`Err ${res.status}: Retry inputs`);
         }
         // else if (!res.ok) throw new err(res.status);
         else return res.json();
