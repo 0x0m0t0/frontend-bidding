@@ -9,7 +9,7 @@ const NewItem = () => {
     // user_id: "130",
     itemName: "",
     auctionStart: new Date().toISOString(), // to be changed
-    auctionDuration: 100,
+    auctionDuration: 100000,
     itemDescription: "",
     coverLobby: "",
   });
