@@ -1,6 +1,5 @@
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Sign Up", href: "/signup", current: false },
   { name: "Login", href: "/login", current: false },
   { name: "Protected", href: "/test", current: false },
   { name: "New Item", href: "/newitem", current: false },

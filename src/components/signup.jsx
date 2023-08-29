@@ -1,7 +1,7 @@
 import { useState } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-const Signup = () => {
+const Signup = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,6 +78,8 @@ const Signup = () => {
       </label>
       <br />
       <button type="submit">Submit</button>
+
+      <button onClick={() => props.handleRegister()}>Go login .......</button>
     </form>
   );
 };
