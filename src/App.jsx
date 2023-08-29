@@ -19,6 +19,7 @@ import Home from "./components/home";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
 import NewItem from "./components/newitem";
+import Lobby from "./components/lobby";
 // import AllLobby from "./components/allLobby";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/newitem" element={<NewItem />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/allLobby" element={<allLobby />} />
+        <Route path="/lobby" element={<Lobby />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
