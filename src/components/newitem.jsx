@@ -6,7 +6,7 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 const NewItem = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
-    user_id: "129",
+    // user_id: "130",
     itemName: "",
     auctionStart: new Date().toISOString(), // to be changed
     auctionDuration: 100,
@@ -24,21 +24,19 @@ const NewItem = () => {
   };
 
   const No = () => {
-    if (cookies.user) {
-      fetch(`${endpoint}/historic/1`, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
+    fetch(`${endpoint}/historic/2`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((post) => {
+        console.log(post);
       })
-        .then((res) => res.json())
-        .then((post) => {
-          console.log(post);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const handleSubmit = (e) => {
