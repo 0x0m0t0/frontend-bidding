@@ -20,6 +20,7 @@ import Profile from "./components/profile";
 import Archive from "./components/archive";
 import Test from "./components/test_protect";
 import NewItem from "./components/newitem";
+import AllLobby from "./components/allLobby";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/newitem" element={<NewItem />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/allLobby" element={<allLobby/>} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
