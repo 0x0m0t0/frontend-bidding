@@ -35,11 +35,9 @@ const Login = (props) => {
         setEmail("");
         setPassword("");
         setCookie("user", post.token, { path: "/" });
-        setCookieUser("user_id", post.user_id, { path: "/" });
-        console.log(post);
-        console.log(post.token);
-        console.log(post.user_id);
-        console.log(cookies.user);
+        setCookieUser("user_id", post.id, { path: "/" });
+      
+    
       })
       .catch((err) => {
         console.log(err.message);
