@@ -67,12 +67,14 @@ const Login = (props) => {
           className="w-full  max-w-xs justify-center rounded-md bg-yellow-400 px-3 py-1.5 m-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
           type="submit"
         >
-          Submit
+          Login
         </button>
       </form>
-      <button onClick={() => props.handleRegister()}>
-        Sign up if you don't have an account with us yet.
-      </button>
+
+      <div>
+        <p>No account with us yet?</p>
+        <button onClick={() => props.handleRegister()}>Get Access →</button>
+      </div>
     </>
   );
 };
