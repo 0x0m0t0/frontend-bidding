@@ -20,7 +20,14 @@ const Signup = (props) => {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          console.log(res.status);
+          alert(`Err ${res.status}: Retry inputs`);
+        }
+        // else if (!res.ok) throw new err(res.status);
+        else return res.json();
+      })
       .then((post) => {
         setName("");
         setEmail("");
@@ -28,6 +35,7 @@ const Signup = (props) => {
         console.log(post);
       })
       .catch((err) => {
+        console.log(err.code);
         console.log(err.message);
       });
 
@@ -36,50 +44,59 @@ const Signup = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => {
-            e.preventDefault();
-            setName(e.target.value);
-          }}
-        />
+      <label className="block text-sm font-medium leading-6 text-gray-900">
+        Username{" "}
       </label>
-      <br />
-      <label>
-        Email:
-        <input
-          type="text"
-          name="name"
-          value={email}
-          onChange={(e) => {
-            e.preventDefault();
-            setEmail(e.target.value);
-          }}
-        />
+      <input
+        type="text"
+        name="name"
+        value={name}
+        className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
+        onChange={(e) => {
+          e.preventDefault();
+          setName(e.target.value);
+        }}
+      />
+
+      <label className="block text-sm font-medium leading-6 text-gray-900">
+        Email{" "}
       </label>
+      <input
+        type="text"
+        name="name"
+        value={email}
+        className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
+        onChange={(e) => {
+          e.preventDefault();
+          setEmail(e.target.value);
+        }}
+      />
 
-      <br />
-
-      <label>
-        Password:
-        <input
-          type="text"
-          name="post"
-          value={password}
-          onChange={(e) => {
-            e.preventDefault();
-            setPassword(e.target.value);
-          }}
-        />
+      <label className="block text-sm font-medium leading-6 text-gray-900">
+        Password{" "}
       </label>
+      <input
+        type="text"
+        name="post"
+        value={password}
+        className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
+        onChange={(e) => {
+          e.preventDefault();
+          setPassword(e.target.value);
+        }}
+      />
       <br />
-      <button type="submit">Submit</button>
+      <button
+        className="w-full  max-w-xs justify-center rounded-md bg-yellow-400 px-3 py-1.5 m-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+        type="submit"
+      >
+        Register
+      </button>
 
-      <button onClick={() => props.handleRegister()}>Go login .......</button>
+      <div>
+        <p>Already have an account?</p>
+        <button onClick={() => props.handleRegister()}>Login →</button>
+      </div>
     </form>
   );
 };

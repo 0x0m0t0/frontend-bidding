@@ -18,7 +18,6 @@ import Nav from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
-import Test from "./components/test_protect";
 import NewItem from "./components/newitem";
 // import AllLobby from "./components/allLobby";
 
@@ -36,7 +35,6 @@ const App = () => {
         <Route path="/login" element={<Auth />} />
         <Route path="/profile" element={<Profile users={users} />} />
         <Route path="/archive" element={<Archive />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/newitem" element={<NewItem />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/allLobby" element={<allLobby />} />
