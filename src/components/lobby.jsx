@@ -1,100 +1,165 @@
 import { useState, useEffect } from "react";
-import user from "../utils/user_account";
+import { useCookies } from "react-cookie";
+
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-//// To change
-let userId = 130;
+//// Change the variable
+let lobbyId = 1;
 
-const Lobby = ({ users }) => {
-  const Biddings = () => {
-    fetch(`${endpoint}/my_bidding/${userId}`, {
+const Lobby = () => {
+  const [cookies] = useCookies(["user"]);
+  const [data, setData] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [post, setPost] = useState({
+    lobby_id: lobbyId,
+    message: ""
+  });
+
+  const updateForm = (formKey, e) => {
+    const { value } = e.target;
+
+    setPost((prevForm) => ({
+      ...prevForm,
+      [formKey]: value,
+    }));
+  };
+
+  const lobbyData = () => {
+    fetch(`${endpoint}/lobby/${lobbyId}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => res.json())
-      .then((post) => {
-        setBids(post);
-        console.log(post);
+      .then((res) => {
+        if (!res.ok) throw new err(res.status);
+        else return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
 
-  const Auctions = () => {
-    fetch(`${endpoint}/my_auction/${userId}`, {
+  const chatData = () => {
+    fetch(`${endpoint}/chat/${lobbyId}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => res.json())
-      .then((post) => {
-        setAuctions(post);
-        console.log(post);
+      .then((res) => {
+        if (!res.ok) throw new err(res.status);
+        else return res.json();
+      })
+      .then((data) => {
+        setMessages(data);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err.message);
       });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(messages)
+    console.log("helloooo" + cookies.user);
+    if (cookies.user) {
+      fetch(`${endpoint}/chat`, {
+        method: "POST",
+        body: JSON.stringify(post),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          authentication: cookies.user,
+        },
+      })
+        .then((res) => res.json())
+        .then((post) => {
+          console.log(post);
+        })
+        .catch((err) => {
+          return err; 
+
+        });
+    } else {
+      alert("Not allowed, please login");
+    }
   };
 
   useEffect(() => {
-    Biddings();
-    Auctions();
-  }, []);
+    lobbyData();
+    chatData();
+  }, [handleSubmit]);
 
   return (
-    <div className="flex flex-col self-center items-center">
-      <h2 key={userInfo[0]?.email} className="text-3xl">
-        Hello, welcome to your profile <em>{userInfo[0]?.name}</em>
-      </h2>
+    <>
+      <h1>hello there this is the lobby</h1>
 
-      <article key="qfqdfqdsmfjqsdmf" className="flex">
-        <section key="qfqdfdfqsfqdsfqsqdsmfjqsdmf" className="bg-red-200">
-          <h3 className="font-semibold">Bids</h3>
-          {bids.map((item) => (
-            <div key={item?.bid_information?.id}>
-              <h2>{item?.item_information?.name}</h2>
-              <img
-                width={20}
-                height={30}
-                src={item?.item_information?.cover_lobby}
-              />
-            </div>
-          ))}
-        </section>
-
-        <section
-          key="qfqdfdfqsfqdskùqkfùfqsqdsmfjqsdmf"
-          className="bg-green-400"
-        >
-          <h3 className="font-semibold">Auctions</h3>
-          {auctions.map((item) => (
-            <div
-              className="flex border rounded border-green-100 m-2"
-              key={item?.created_at + item?.id}
-            >
-              <div>
-                <h2>{item?.name}</h2>
-                <p className="bg-green-800">{item?.description}</p>
-                <p className="bg-green-800">{item?.created_at}</p>
+      <article>
+        <section className="bg-yellow-400">
+          <h3 className="font-semibold">Auction</h3>
+          {data?.length > 0 ? (
+            data.map((item) => (
+              <div
+                className="flex border rounded border-green-100 m-2"
+                key={item?.created_at + item?.id}
+              >
+                <div>
+                  <p className="bg-green-800">{item?.name}</p>
+                  <p>♥ {item?.likes}</p>
+                  {/* <p className="bg-green-800">{item?.created_at}</p> */}
+                </div>
               </div>
-
-              <div>
-                <img
-                  className="rounded-full"
-                  width={100}
-                  height={200}
-                  src={item?.cover_lobby}
-                />
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <h2 className="empty">Nothing to be found here</h2>
+          )}
         </section>
       </article>
-    </div>
+      <article>
+        <section className="bg-green-400">
+          <h3 className="font-semibold">Chat</h3>
+          {messages?.length > 0 ? (
+            messages.map((item) => (
+              <div
+                className="flex border rounded border-green-100 m-2"
+                key={item?.created_at + item?.id}
+              >
+                <div>
+                  <h2>{item?.id_user}</h2>
+                  <p className="bg-green-800">{item?.message}</p>
+                  <p className="bg-green-800">{item?.created_at}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <h2 className="empty">Nothing to be found here</h2>
+          )}
+        </section>
+
+        <section>
+          <form onSubmit={handleSubmit}>
+            <label>New message</label>
+            <input
+              type="text"
+              name="message"
+              value={post.message}
+              onChange={(e) => {
+                e.preventDefault();
+                updateForm("message", e);
+              }}
+            />
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+      </article>
+    </>
   );
 };
 
