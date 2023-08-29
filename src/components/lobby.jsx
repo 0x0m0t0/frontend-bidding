@@ -7,12 +7,15 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 let lobbyId = 1;
 
 const Lobby = () => {
-  const [cookies] = useCookies(["user"]);
+  const [cookies] = useCookies(["user"], ["user_id"]);
+
+  const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [user, setUser] = useState({});
   const [post, setPost] = useState({
     lobby_id: lobbyId,
-    message: ""
+    message: "",
   });
 
   const updateForm = (formKey, e) => {
@@ -37,10 +40,28 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
-        
       })
       .catch((err) => {
-        return err; 
+        return err;
+      });
+  };
+  const userData = () => {
+    fetch(`${endpoint}/account/${cookies.user_id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) throw new err(res.status);
+        else return res.json();
+      })
+      .then((data) => {
+        setUser(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        return err;
       });
   };
 
@@ -57,10 +78,11 @@ const Lobby = () => {
       })
       .then((data) => {
         setMessages(data);
-      
+        console.log(data);
       })
       .catch((err) => {
-        return err;       });
+        return err;
+      });
   };
 
   const handleSubmit = (e) => {
@@ -72,37 +94,35 @@ const Lobby = () => {
         body: JSON.stringify(post),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "https://platform.oxomoto.co/chat",
           authentication: cookies.user,
         },
       })
         .then((res) => res.json())
         .then((post) => {
-          
+          setCheck([post]);
         })
         .catch((err) => {
-          return err; 
-
+          return err;
         });
     } else {
       alert("Not allowed, please login");
     }
   };
 
-
   useEffect(() => {
+    userData();
     lobbyData();
   }, []);
 
-
   useEffect(() => {
     chatData();
-  }, [handleSubmit]);
+  }, [check]);
 
   return (
     <>
       <h1>hello there this is the lobby</h1>
-
+      <h2>Welcome {user[0]?.name}</h2>
       <article>
         <section className="bg-yellow-400">
           <h3 className="font-semibold">Auction</h3>
