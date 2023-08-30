@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCookies } from "react-cookie";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -27,11 +27,13 @@ const Lobby = () => {
     }));
   };
 
-  const lobbyData = () => {
-    fetch(`${endpoint}/lobby/${lobbyId}`, {
+  const lobbyInit = () => {
+    fetch(`${endpoint}/lobby/init/1`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        authentication: cookies.user,
       },
     })
       .then((res) => {
@@ -40,16 +42,19 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
+        console.log(data);
       })
       .catch((err) => {
         return err;
       });
   };
-  const userData = () => {
-    fetch(`${endpoint}/account/${cookies.user_id}`, {
+  const lobbyData = () => {
+    fetch(`${endpoint}/lobby/${lobbyId}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        authentication: cookies.user,
       },
     })
       .then((res) => {
@@ -57,8 +62,7 @@ const Lobby = () => {
         else return res.json();
       })
       .then((data) => {
-        setUser(data);
-        console.log(data);
+        setData(data);
       })
       .catch((err) => {
         return err;
@@ -111,20 +115,27 @@ const Lobby = () => {
   };
 
   useEffect(() => {
-    userData();
     lobbyData();
+
+    lobbyInit();
   }, []);
 
   useEffect(() => {
     chatData();
   }, [check]);
 
+  const AlwaysScrollToBottom = () => {
+    const elementRef = useRef();
+    useEffect(() => elementRef.current.scrollIntoView());
+    return <div ref={elementRef} />;
+  };
+
   return (
     <>
       <h1>hello there this is the lobby</h1>
       <h2>Welcome {user[0]?.name}</h2>
-      <article>
-        <section className="bg-yellow-400">
+      <article className="flex w-full h-3/5 max-h-screen">
+        <section className="bg-yellow-400 w-2/4 h-full">
           <h3 className="font-semibold">Auction</h3>
           {data?.length > 0 ? (
             data.map((item) => (
@@ -143,30 +154,29 @@ const Lobby = () => {
             <h2 className="empty">Nothing to be found here</h2>
           )}
         </section>
-      </article>
-      <article>
-        <section className="bg-green-400">
-          <h3 className="font-semibold">Chat</h3>
-          {messages?.length > 0 ? (
-            messages.map((item) => (
-              <div
-                className="flex border rounded border-green-100 m-2"
-                key={item?.created_at + item?.id}
-              >
-                <div>
-                  <h2>{item?.id_user}</h2>
-                  <p className="bg-green-800">{item?.message}</p>
-                  <p className="bg-green-800">{item?.created_at}</p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <h2 className="empty">Nothing to be found here</h2>
-          )}
-        </section>
 
-        <section>
-          <form onSubmit={handleSubmit}>
+        <section className="flex h-80 flex-col bg-green-400 w-2/4 overflow-auto">
+          <div className="ref overflow-auto h-4/5 bg-red-400">
+            <h3 className="font-semibold">Chat</h3>
+            {messages?.length > 0 ? (
+              messages.map((item, i) => (
+                <div
+                  className="flex border rounded border-green-100 m-2"
+                  key={item?.created_at + i}
+                >
+                  <div className="flex">
+                    <h2>{item?.username}: </h2>
+                    <p className="bg-green-800">{item?.message}</p>
+                    <p className="bg-green-800">{item?.created_at}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <h2 className="empty">Nothing to be found here</h2>
+            )}
+            <AlwaysScrollToBottom />
+          </div>
+          <form className="overflow-auto h-auto" onSubmit={handleSubmit}>
             <label>New message</label>
             <input
               type="text"
