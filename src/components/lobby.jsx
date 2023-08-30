@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useCookies } from "react-cookie";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -8,9 +8,9 @@ let lobbyId = 1;
 
 const Lobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
-  // const [txt, setTxt] = useState("");
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
+  const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
   const [post, setPost] = useState({
     lobby_id: lobbyId,
@@ -40,8 +40,7 @@ const Lobby = () => {
         else return res.json();
       })
       .then((data) => {
-        setData(data);
-        console.log(data);
+        setInit([data]);
       })
       .catch((err) => {
         return err;
@@ -81,7 +80,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setMessages(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => {
         return err;
@@ -116,13 +115,14 @@ const Lobby = () => {
 
   useEffect(() => {
     lobbyData();
-
     lobbyInit();
   }, []);
 
   useEffect(() => {
     chatData();
   }, [check]);
+
+  // setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
@@ -132,29 +132,55 @@ const Lobby = () => {
 
   return (
     <>
-      <h1>hello there this is the lobby</h1>
-
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="bg-yellow-400 w-2/4 h-full">
-          <h3 className="font-semibold">Auction</h3>
-          {data?.length > 0 ? (
-            data.map((item) => (
+        <section className="w-2/4 h-full rounded-lg bg-yellow-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+          {init?.length > 0 ? (
+            init?.map((item, i) => (
               <div
                 className="flex border rounded border-green-100 m-2"
-                key={item?.created_at + item?.id}
+                key={item?.lobby?.created_at + item?.id}
               >
+                {console.log(item)}
                 <div>
-                  <p className="bg-green-800">{item?.name}</p>
-                  <p>♥ {item?.likes}</p>
-                  {/* <p className="bg-green-800">{item?.created_at}</p> */}
+                  <img
+                    className="rounded"
+                    src={item?.item?.cover_lobby}
+                    alt=""
+                  />
+
+                  <div className="border rounded border-green-100">
+                    <p className="bg-green-400 border-green-100">
+                      {item?.item?.name}
+                    </p>
+                    <p className="p-3">{item?.item?.description}</p>
+                    <p className="p-3">{item?.lobby?.created_at}</p>
+                  </div>
+                  <div>
+                    <p className="bg-green-600">Status: {item?.item?.status}</p>
+                  </div>
+
+                  <div className="flex">
+                    <img
+                      src={item?.seller?.avatar}
+                      className="w-16 h-16 p-2 rounded-full"
+                      alt="Avatar"
+                    />
+                    <div className="flex flex-col">
+                      <p className="mb-2 text-xl font-medium leading-tight">
+                        {item?.seller?.name}
+                      </p>
+                      <p className="text-neutral-500 dark:text-neutral-400">
+                        User since {item?.seller?.created_at.slice(0, 7)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))
           ) : (
-            <h2 className="empty">Nothing to be found here</h2>
+            <></>
           )}
         </section>
-
         <section className="flex h-80 flex-col bg-green-400 w-2/4 overflow-auto">
           <div className="ref overflow-auto h-4/5 bg-red-400">
             <h3 className="font-semibold">Chat</h3>
@@ -166,7 +192,7 @@ const Lobby = () => {
                 >
                   <div className="flex">
                     <h2>{item?.username}: </h2>
-                    <p className="bg-green-800">{item?.message}</p>
+                    <p className="bg-indigo-400">{item?.message}</p>
                     <p className="bg-green-800">{item?.created_at}</p>
                   </div>
                 </div>
