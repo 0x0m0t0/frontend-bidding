@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useCookies } from "react-cookie";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -8,9 +8,9 @@ let lobbyId = 1;
 
 const Lobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
-  // const [txt, setTxt] = useState("");
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
+  const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
   const [post, setPost] = useState({
     lobby_id: lobbyId,
@@ -40,8 +40,7 @@ const Lobby = () => {
         else return res.json();
       })
       .then((data) => {
-        setData(data);
-        console.log(data);
+        setInit([data]);
       })
       .catch((err) => {
         return err;
@@ -81,7 +80,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setMessages(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => {
         return err;
@@ -116,13 +115,14 @@ const Lobby = () => {
 
   useEffect(() => {
     lobbyData();
-
     lobbyInit();
   }, []);
 
   useEffect(() => {
     chatData();
   }, [check]);
+
+  setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
@@ -132,29 +132,30 @@ const Lobby = () => {
 
   return (
     <>
-      <h1>hello there this is the lobby</h1>
-
       <article className="flex w-full h-3/5 max-h-screen">
+        <h1>{init?.lobby?.name}</h1>{" "}
         <section className="bg-yellow-400 w-2/4 h-full">
           <h3 className="font-semibold">Auction</h3>
-          {data?.length > 0 ? (
-            data.map((item) => (
+
+          {init?.length > 0 ? (
+            init?.map((item, i) => (
               <div
                 className="flex border rounded border-green-100 m-2"
-                key={item?.created_at + item?.id}
+                key={item?.lobby[0]?.created_at + item?.id}
               >
+                {console.log(item)}
                 <div>
-                  <p className="bg-green-800">{item?.name}</p>
-                  <p>♥ {item?.likes}</p>
-                  {/* <p className="bg-green-800">{item?.created_at}</p> */}
+                  <img src={item?.cover_lobby} alt="" />
+                  <p className="bg-green-400">{item?.item[0]?.description}</p>
+                  <h4 className="bg-green-800">{item?.item[0]?.status}</h4>
+                  <p className="bg-green-800">{item?.lobby[0]?.created_at}</p>
                 </div>
               </div>
             ))
           ) : (
-            <h2 className="empty">Nothing to be found here</h2>
+            <></>
           )}
         </section>
-
         <section className="flex h-80 flex-col bg-green-400 w-2/4 overflow-auto">
           <div className="ref overflow-auto h-4/5 bg-red-400">
             <h3 className="font-semibold">Chat</h3>
@@ -166,7 +167,7 @@ const Lobby = () => {
                 >
                   <div className="flex">
                     <h2>{item?.username}: </h2>
-                    <p className="bg-green-800">{item?.message}</p>
+                    <p className="bg-indigo-400">{item?.message}</p>
                     <p className="bg-green-800">{item?.created_at}</p>
                   </div>
                 </div>
