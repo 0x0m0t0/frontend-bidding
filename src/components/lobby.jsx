@@ -8,14 +8,13 @@ let lobbyId = 1;
 
 const Lobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
-
+  // const [txt, setTxt] = useState("");
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
   const [messages, setMessages] = useState([]);
-  const [user, setUser] = useState({});
   const [post, setPost] = useState({
     lobby_id: lobbyId,
-    message: "",
+    message: ``,
   });
 
   const updateForm = (formKey, e) => {
@@ -105,6 +104,7 @@ const Lobby = () => {
         .then((res) => res.json())
         .then((post) => {
           setCheck([post]);
+          updateForm("message", { target: { value: "" } });
         })
         .catch((err) => {
           return err;
@@ -133,7 +133,7 @@ const Lobby = () => {
   return (
     <>
       <h1>hello there this is the lobby</h1>
-      <h2>Welcome {user[0]?.name}</h2>
+
       <article className="flex w-full h-3/5 max-h-screen">
         <section className="bg-yellow-400 w-2/4 h-full">
           <h3 className="font-semibold">Auction</h3>
