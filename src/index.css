@@ -10,7 +10,8 @@
 }
 
 body {
-  background: lightgoldenrodyellow;
+  background: #f9f9f9;
+  color: #1c1a4f;
 }
 
 .logo {
@@ -49,5 +50,5 @@ body {
 }
 
 .read-the-docs {
-  color: #888;
+  color: #1c1a4f;
 }
