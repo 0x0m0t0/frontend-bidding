@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useCookies } from "react-cookie";
-
+import { HeartLike } from "./heartlike";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 //// Change the variable
@@ -46,6 +46,7 @@ const Lobby = () => {
         return err;
       });
   };
+
   const lobbyData = () => {
     fetch(`${endpoint}/lobby/${lobbyId}`, {
       method: "GET",
@@ -61,6 +62,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
+        console.log(data);
       })
       .catch((err) => {
         return err;
@@ -80,7 +82,6 @@ const Lobby = () => {
       })
       .then((data) => {
         setMessages(data);
-        // console.log(data);
       })
       .catch((err) => {
         return err;
@@ -122,7 +123,7 @@ const Lobby = () => {
     chatData();
   }, [check]);
 
-  setInterval(chatData(), 2000);
+  // setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
@@ -132,6 +133,7 @@ const Lobby = () => {
 
   return (
     <>
+      <HeartLike />
       <article className="flex w-full h-3/5 max-h-screen">
         <section className="w-2/4 h-full rounded-lg bg-yellow-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
           {init?.length > 0 ? (
@@ -140,7 +142,7 @@ const Lobby = () => {
                 className="flex border rounded border-green-100 m-2"
                 key={item?.lobby?.created_at + item?.id}
               >
-                {console.log(item)}
+                {/* {console.log(item)} */}
                 <div>
                   <img
                     className="rounded"
