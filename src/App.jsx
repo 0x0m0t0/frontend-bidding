@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,39 +12,20 @@ import {
 import "./index.css";
 
 import NoMatch from "./components/404";
-import Login from "./components/authi";
-import Signup from "./components/signup";
+import Auth from "./components/authi";
+
 import Nav from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
-import Test from "./components/test_protect";
 import NewItem from "./components/newitem";
-import AllLobby from "./components/allLobby";
+import Lobby from "./components/lobby";
+// import AllLobby from "./components/allLobby";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-const userDataTest = {
-  name: "John",
-  hobbies: "running",
-  email: "jackiechan@hollywood.xyz",
-};
-
 const App = () => {
   const [users, setUsers] = useState([]);
-
-  // const fetchData = () => {
-  //   fetch(endpoint)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setUsers(data);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   return (
     <Router>
@@ -51,14 +33,13 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Auth />} />
         <Route path="/profile" element={<Profile users={users} />} />
         <Route path="/archive" element={<Archive />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/newitem" element={<NewItem />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/allLobby" element={<allLobby/>} />
+        <Route path="/allLobby" element={<allLobby />} />
+        <Route path="/lobby" element={<Lobby />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
