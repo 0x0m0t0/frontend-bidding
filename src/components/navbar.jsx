@@ -1,3 +1,4 @@
+import beehiveLogo from "./../assets/img/bidhive-logo.png";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Login", href: "/login", current: false },
@@ -14,7 +15,12 @@ function classNames(...classes) {
 export default function Nav() {
   return (
     <>
+     
+    
       <div className="flex justify-center">
+      <img className="h-20 w-20 m-5" src={beehiveLogo}/> 
+      
+        
         {navigation.map((item) => (
           <a
             key={item.name}
@@ -23,7 +29,7 @@ export default function Nav() {
               item.current
                 ? "bg-midnightblue text-mustard"
                 : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
-              "rounded-md px-3 py-2 text-sm font-medium m-2"
+              "rounded-md px-3 py-2 text-sm font-medium mt-12 mb-8 mr-1"
             )}
             aria-current={item.current ? "page" : undefined}
           >
