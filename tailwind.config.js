@@ -5,6 +5,14 @@ export default {
   ],
   theme: {
     extend: {},
+    colors: {
+      "midnightblue" : "#1c1a4f",
+      "mustard" : "#f5d63b"
+      
+    }
   },
   plugins: [],
+  
 }
+
+    
