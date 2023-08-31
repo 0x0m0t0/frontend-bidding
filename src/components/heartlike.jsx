@@ -83,7 +83,6 @@ export const HeartLike = () => {
         },
       })
         .then((res) => res.json())
-        .then((post) => {})
         .catch((err) => {
           return err;
         });
@@ -105,7 +104,7 @@ export const HeartLike = () => {
   useEffect(() => {
     likeChecker();
     amountLikes();
-  }, [ifLiked]);
+  }, [likedLobbies]);
 
   if (isClicked) {
     return (
