@@ -9,11 +9,10 @@ let lobbyId = 1;
 export const HeartLike = () => {
   const [likedLobbies, setLikedLobbies] = useState([]);
   const [likes, setLikes] = useState();
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState();
   const [cookies] = useCookies(["user"], ["user_id"]);
 
   const likeChecker = () => {
-    console.log("its called");
     if (likedLobbies.length > 0) {
       const isLiked = likedLobbies.findIndex(
         (item) => item.id_lobby === lobbyId
@@ -102,6 +101,11 @@ export const HeartLike = () => {
     ifLiked();
     amountLikes();
   }, []);
+
+  useEffect(() => {
+    likeChecker();
+    amountLikes();
+  }, [ifLiked]);
 
   if (isClicked) {
     return (
