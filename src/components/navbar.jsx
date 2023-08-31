@@ -17,7 +17,7 @@ export default function Nav() {
     <>
      
     
-      <div className="flex items-start justify-between p-4">
+      <div className="flex items-start justify-between mt-8 mr-1 pb-2 pt-2 pr-6 pl-6">
       <img className="h-20 w-25 m-5 mr-40" src={beehiveLogo}/> 
       
         
