@@ -1,4 +1,4 @@
-import beehiveLogo from "./../assets/img/bidhive-logo.png";
+import beehiveLogo from "./../assets/img/beehive.png";
 
 const Hello = () => {
   return alert("Hello Welcome to Bidhive");

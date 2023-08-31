@@ -17,8 +17,8 @@ export default function Nav() {
     <>
      
     
-      <div className="flex justify-center">
-      <img className="h-20 w-20 m-5" src={beehiveLogo}/> 
+      <div className="flex items-start justify-between p-4">
+      <img className="h-20 w-25 m-5 mr-40" src={beehiveLogo}/> 
       
         
         {navigation.map((item) => (
@@ -29,7 +29,7 @@ export default function Nav() {
               item.current
                 ? "bg-midnightblue text-mustard"
                 : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
-              "rounded-md px-3 py-2 text-sm font-medium mt-12 mb-8 mr-1"
+              "rounded-md px-3 py-2 text-sm font-medium mt-12 mb-8 mr-1", 
             )}
             aria-current={item.current ? "page" : undefined}
           >
