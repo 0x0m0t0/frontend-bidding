@@ -98,6 +98,7 @@ const NewItem = () => {
       <label>
         Image cover:
         <input
+          className="fmdfjqmsf dfqsfsd"
           type="text"
           name="post"
           value={item.coverLobby}
