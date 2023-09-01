@@ -46,10 +46,7 @@ const AllLobby = () => {
                   {/* <img src={item?.cover_lobby} alt={item?.name} /> */}
                   <p>id: {item?.id}</p>
                   <p>likes: {item?.likes}</p>
-                  <Link
-                    to={`${endpoint}/lobby/${item?.id}`}
-                    className="underline"
-                  >
+                  <Link to={`/lobby/${item?.id}`} className="underline">
                     Lobby {item?.id}
                   </Link>
                 </div>
