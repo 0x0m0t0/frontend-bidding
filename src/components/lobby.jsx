@@ -1,19 +1,18 @@
 import { useEffect, useState, useRef } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { HeartLike } from "./heartlike";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-//// Change the variable
-let lobbyId = 1;
-
 const Lobby = () => {
+  const { lobbyid } = useParams();
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
   const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
   const [post, setPost] = useState({
-    lobby_id: lobbyId,
+    lobby_id: lobbyid,
     message: ``,
   });
 
@@ -27,11 +26,11 @@ const Lobby = () => {
   };
 
   const lobbyInit = () => {
-    fetch(`${endpoint}/lobby/init/1`, {
+    fetch(`${endpoint}/lobby/init/${lobbyid}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        "Access-Control-Allow-Origin": endpoint,
         authentication: cookies.user,
       },
     })
@@ -48,11 +47,11 @@ const Lobby = () => {
   };
 
   const lobbyData = () => {
-    fetch(`${endpoint}/lobby/${lobbyId}`, {
+    fetch(`${endpoint}/lobby/${lobbyid}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        "Access-Control-Allow-Origin": endpoint,
         authentication: cookies.user,
       },
     })
@@ -62,7 +61,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => {
         return err;
@@ -70,7 +69,7 @@ const Lobby = () => {
   };
 
   const chatData = () => {
-    fetch(`${endpoint}/chat/${lobbyId}`, {
+    fetch(`${endpoint}/chat/${lobbyid}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -97,7 +96,7 @@ const Lobby = () => {
         body: JSON.stringify(post),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin": "https://platform.oxomoto.co/chat",
+          "Access-Control-Allow-Origin": endpoint,
           authentication: cookies.user,
         },
       })
@@ -115,7 +114,7 @@ const Lobby = () => {
   };
 
   useEffect(() => {
-    lobbyData();
+    // lobbyData();
     lobbyInit();
   }, []);
 
@@ -123,7 +122,7 @@ const Lobby = () => {
     chatData();
   }, [check]);
 
-  // setInterval(chatData(), 2000);
+  setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
