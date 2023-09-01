@@ -9,7 +9,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import "./index.css";
+import "./src/../index.css";
 
 import NoMatch from "./components/404";
 import Auth from "./components/authi";
