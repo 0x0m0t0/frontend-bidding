@@ -40,6 +40,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/allLobby" element={<allLobby />} />
         <Route path="/lobby" element={<Lobby />} />
+        <Route path="/lobby/:lobbyid" element={<Lobby />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
