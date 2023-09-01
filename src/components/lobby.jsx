@@ -122,7 +122,7 @@ const Lobby = () => {
     chatData();
   }, [check]);
 
-  setInterval(chatData(), 2000);
+  // setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();

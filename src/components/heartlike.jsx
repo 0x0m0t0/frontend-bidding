@@ -1,25 +1,33 @@
 import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
+
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-/// to change, use props
-let lobbyId = 1;
-
 export const HeartLike = () => {
+  const { lobbyid } = useParams();
   const [likedLobbies, setLikedLobbies] = useState([]);
+  const [likedByUser, setLikedByUser] = useState([]);
   const [likes, setLikes] = useState();
   const [isClicked, setIsClicked] = useState();
   const [cookies] = useCookies(["user"], ["user_id"]);
 
   const likeChecker = () => {
     if (likedLobbies.length > 0) {
-      const isLiked = likedLobbies.findIndex(
-        (item) => item.id_lobby === lobbyId
-      );
-      if (isLiked === 0) {
-        console.log("i did it");
-        setIsClicked(true);
+      let likedUser = [];
+      likedLobbies.map((item) => likedUser.push(item.id_lobby));
+
+      if (likedUser.length > 0) {
+        const isLiked = likedUser.includes(Number.parseInt(lobbyid));
+        if (isLiked === true) {
+          console.log("i did it");
+          setIsClicked(true);
+        } else {
+          console.log("not found by user");
+        }
+      } else {
+        console.log("hello not there yet");
       }
     } else {
       console.log("nooo");
@@ -41,18 +49,18 @@ export const HeartLike = () => {
       })
       .then((data) => {
         setLikedLobbies(data);
-        console.log(data[0]);
+        console.log(data);
       })
       .catch((err) => {
         return err;
       });
   };
   const amountLikes = () => {
-    fetch(`${endpoint}/lobby/update_lobby/${lobbyId}`, {
+    fetch(`${endpoint}/lobby/update_lobby/${lobbyid}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        "Access-Control-Allow-Origin": "https://auction.oxomoto.co/",
         authentication: cookies.user,
       },
     })
@@ -73,7 +81,7 @@ export const HeartLike = () => {
       fetch(`${endpoint}/lobby/like`, {
         method: "POST",
         body: JSON.stringify({
-          lobby_id: lobbyId,
+          lobby_id: lobbyid,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -94,7 +102,7 @@ export const HeartLike = () => {
       fetch(`${endpoint}/lobby/like`, {
         method: "DELETE",
         body: JSON.stringify({
-          lobby_id: lobbyId,
+          lobby_id: lobbyid,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
