@@ -4,9 +4,6 @@ import { useCookies } from "react-cookie";
 import { HeartLike } from "./heartlike";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-//// Change the variable
-// let lobbyId = 1;
-
 const Lobby = () => {
   const { lobbyid } = useParams();
   const [cookies] = useCookies(["user"], ["user_id"]);
@@ -33,7 +30,7 @@ const Lobby = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        "Access-Control-Allow-Origin": endpoint,
         authentication: cookies.user,
       },
     })
@@ -54,7 +51,7 @@ const Lobby = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "https://platform.oxomoto.co/",
+        "Access-Control-Allow-Origin": endpoint,
         authentication: cookies.user,
       },
     })
@@ -99,7 +96,7 @@ const Lobby = () => {
         body: JSON.stringify(post),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin": "https://platform.oxomoto.co/chat",
+          "Access-Control-Allow-Origin": endpoint,
           authentication: cookies.user,
         },
       })
