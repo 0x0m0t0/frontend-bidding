@@ -61,7 +61,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => {
         return err;
@@ -114,7 +114,7 @@ const Lobby = () => {
   };
 
   useEffect(() => {
-    lobbyData();
+    // lobbyData();
     lobbyInit();
   }, []);
 
