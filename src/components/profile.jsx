@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import user from "../utils/user_account";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-//// To change
-let userId = 1;
-
 const Profile = ({ users }) => {
+  const [cookies] = useCookies(["user"], ["user_id"]);
   const [userInfo, setUserInfo] = useState([]);
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
 
-  user({ endpoint, userId, setUserInfo });
+  user({ endpoint, setUserInfo });
 
   const Biddings = () => {
-    fetch(`${endpoint}/my_bidding/${userId}`, {
+    fetch(`${endpoint}/my_bidding/${cookies.user_id}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -30,7 +29,7 @@ const Profile = ({ users }) => {
   };
 
   const Auctions = () => {
-    fetch(`${endpoint}/my_auction/${userId}`, {
+    fetch(`${endpoint}/my_auction/${cookies.user_id}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
