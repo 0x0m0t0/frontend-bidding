@@ -1,4 +1,5 @@
 import beehiveLogo from "./../assets/img/bidhive-logo.png";
+import { Avatar } from "./avatar";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Login", href: "/login", current: false },
@@ -15,13 +16,8 @@ function classNames(...classes) {
 export default function Nav() {
   return (
     <>
-
-     
-   
-      <div className="flex items-start justify-between mt-8 mr-1 pb-2 pt-2 pr-6 pl-6">
-      <img className="h-20 w-25 m-5 mr-40" src={beehiveLogo}/> 
-      
-        
+      <div className="flex items-start justify-between mr-1 pb-2 pt-2 pr-6 pl-6">
+        <img className="h-20 w-25 p-3 pr-40 -mt-5" src={beehiveLogo} />
 
         {navigation.map((item) => (
           <a
@@ -31,13 +27,14 @@ export default function Nav() {
               item.current
                 ? "bg-midnightblue text-mustard"
                 : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
-              "rounded-md px-3 py-2 text-sm font-medium mt-12 mb-8 mr-1"
+              "rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
             )}
             aria-current={item.current ? "page" : undefined}
           >
             {item.name}
           </a>
         ))}
+        <Avatar />
       </div>
     </>
   );
