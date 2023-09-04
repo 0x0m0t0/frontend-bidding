@@ -1,11 +1,13 @@
 import beehiveLogo from "./../assets/img/bidhive-logo.png";
 import { Avatar } from "./avatar";
+import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Login", href: "/login", current: false },
+  // { name: "Login", href: "/login", current: false },
   { name: "New Item", href: "/newitem", current: false },
   { name: "Archive", href: "/archive", current: false },
-  { name: "Profile", href: "/profile", current: false },
   { name: "Lobbies", href: "/alllobby", current: false },
 ];
 
@@ -14,6 +16,7 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
+  const [cookies] = useCookies(["user"], ["user_id"]);
   return (
     <>
       <div className="flex items-start justify-between mr-1 pb-2 pt-2 pr-6 pl-6">
@@ -34,7 +37,20 @@ export default function Nav() {
             {item.name}
           </a>
         ))}
-        <Avatar />
+
+        {cookies?.user && cookies?.user_id !== null ? (
+          <Avatar />
+        ) : (
+          <Link to={`/login`}>
+            <button
+              className={
+                "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
+              }
+            >
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </>
   );
