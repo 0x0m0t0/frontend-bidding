@@ -2,20 +2,31 @@ import { useState } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Signup = (props) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const [register, setRegister] = useState({
+    name: "",
+    email: "",
+    password: "",
+    avatar: "",
+    username: "",
+  });
+
+  const updateForm = (formKey, e) => {
+    const { value } = e.target;
+
+    setRegister((prevForm) => ({
+      ...prevForm,
+      [formKey]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, password);
     fetch(`${endpoint}/signup`, {
       method: "POST",
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-      }),
+      body: JSON.stringify(register),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
@@ -29,9 +40,6 @@ const Signup = (props) => {
         else return res.json();
       })
       .then((post) => {
-        setName("");
-        setEmail("");
-        setPassword("");
         console.log(post);
       })
       .catch((err) => {
@@ -50,11 +58,39 @@ const Signup = (props) => {
       <input
         type="text"
         name="name"
-        value={name}
+        value={register.name}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
           e.preventDefault();
-          setName(e.target.value);
+          updateForm("name", e);
+        }}
+      />
+
+      <label className="block text-sm font-medium leading-6 text-gray-900">
+        Username{" "}
+      </label>
+      <input
+        type="text"
+        name="username"
+        value={register.username}
+        className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
+        onChange={(e) => {
+          e.preventDefault();
+          updateForm("username", e);
+        }}
+      />
+
+      <label className="block text-sm font-medium leading-6 text-gray-900">
+        Avatar{" "}
+      </label>
+      <input
+        type="text"
+        name="avatar"
+        value={register.avatar}
+        className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
+        onChange={(e) => {
+          e.preventDefault();
+          updateForm("avatar", e);
         }}
       />
 
@@ -64,11 +100,11 @@ const Signup = (props) => {
       <input
         type="text"
         name="name"
-        value={email}
+        value={register.email}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
           e.preventDefault();
-          setEmail(e.target.value);
+          updateForm("email", e);
         }}
       />
 
@@ -78,11 +114,11 @@ const Signup = (props) => {
       <input
         type="text"
         name="post"
-        value={password}
+        value={register.password}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
           e.preventDefault();
-          setPassword(e.target.value);
+          updateForm("password", e);
         }}
       />
       <br />
