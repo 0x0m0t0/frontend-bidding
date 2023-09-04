@@ -6,7 +6,6 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 const NewItem = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
-    // user_id: "130",
     itemName: "",
     auctionStart: new Date().toISOString(), // to be changed
     auctionDuration: 100000,
