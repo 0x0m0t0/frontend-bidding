@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -9,6 +10,7 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,6 +42,7 @@ const Login = (props) => {
         setPassword("");
         setCookie("user", post.token, { path: "/" });
         setCookieUser("user_id", post.id, { path: "/" });
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
