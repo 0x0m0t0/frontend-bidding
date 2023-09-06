@@ -97,8 +97,7 @@ const NewItem = () => {
       <label>
         Image cover:
         <input
-          className="fmdfjqmsf dfqsfsd"
-          type="text"
+          type="url"
           name="post"
           value={item.coverLobby}
           onChange={(e) => {
