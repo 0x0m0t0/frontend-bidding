@@ -14,6 +14,11 @@ body {
   color: #1c1a4f;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -11,7 +11,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(email, password);
+
     fetch(`${endpoint}/login`, {
       method: "POST",
       body: JSON.stringify({
@@ -27,8 +27,12 @@ const Login = (props) => {
           console.log(res.status);
           alert(`Err ${res.status}: Wrong email or password`);
         }
+
         // else if (!res.ok) throw new err(res.status);
-        else return res.json();
+        else {
+          console.log(res.status);
+          return res.json();
+        }
       })
 
       .then((post) => {
@@ -36,8 +40,6 @@ const Login = (props) => {
         setPassword("");
         setCookie("user", post.token, { path: "/" });
         setCookieUser("user_id", post.id, { path: "/" });
-      
-    
       })
       .catch((err) => {
         console.log(err.message);
