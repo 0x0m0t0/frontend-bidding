@@ -72,6 +72,7 @@ const NewItem = () => {
         <input
           type="text"
           name="name"
+          required
           value={item.itemName}
           onChange={(e) => {
             e.preventDefault();
@@ -99,6 +100,7 @@ const NewItem = () => {
         <input
           type="url"
           name="post"
+          required
           value={item.coverLobby}
           onChange={(e) => {
             e.preventDefault();
