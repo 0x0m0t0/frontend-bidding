@@ -10,6 +10,7 @@ const user = ({ endpoint, cookies, setUserInfo }) => {
     })
       .then((res) => res.json())
       .then((post) => {
+        console.log("hahahaha good stuff");
         console.log(post);
         setUserInfo(post);
       })
