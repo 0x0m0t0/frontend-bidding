@@ -9,7 +9,7 @@ const Profile = ({ users }) => {
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
 
-  user({ endpoint, setUserInfo });
+  user({ endpoint, cookies, setUserInfo });
 
   const Biddings = () => {
     fetch(`${endpoint}/my_bidding/${cookies.user_id}`, {
@@ -52,9 +52,13 @@ const Profile = ({ users }) => {
 
   return (
     <div className="flex flex-col self-center items-center">
-      <h2 key={userInfo[0]?.email} className="text-3xl">
-        Hello, welcome to your profile <em>{userInfo[0]?.name}</em>
-      </h2>
+      {userInfo.length > 0 ? (
+        <h2 key={userInfo[0]?.email} className="text-3xl">
+          Hello, welcome to your profile <em>{userInfo[0]?.name}</em>
+        </h2>
+      ) : (
+        <p>error fetching user data</p>
+      )}
 
       <article key="qfqdfqdsmfjqsdmf" className="flex">
         <section key="qfqdfdfqsfqdsfqsqdsmfjqsdmf" className="bg-red-200">

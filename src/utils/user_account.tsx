@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-const user = ({ endpoint, userId, setUserInfo }) => {
+const user = ({ endpoint, cookies, setUserInfo }) => {
   useEffect(() => {
-    fetch(`${endpoint}/account/${userId}`, {
+    fetch(`${endpoint}/account/${cookies.user_id}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
