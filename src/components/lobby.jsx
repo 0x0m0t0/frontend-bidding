@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { HeartLike } from "./heartlike";
+import { PennyCounter } from "./counter";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
@@ -132,6 +133,7 @@ const Lobby = () => {
 
   return (
     <>
+      <PennyCounter />
       <HeartLike />
       <article className="flex w-full h-3/5 max-h-screen">
         <section className="w-2/4 h-full rounded-lg bg-yellow-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">

@@ -58,6 +58,7 @@ const Signup = (props) => {
       <input
         type="text"
         name="name"
+        required
         value={register.name}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
@@ -72,6 +73,7 @@ const Signup = (props) => {
       <input
         type="text"
         name="username"
+        required
         value={register.username}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
@@ -86,6 +88,7 @@ const Signup = (props) => {
       <input
         type="text"
         name="avatar"
+        required
         value={register.avatar}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
@@ -98,8 +101,9 @@ const Signup = (props) => {
         Email{" "}
       </label>
       <input
-        type="text"
+        type="email"
         name="name"
+        required
         value={register.email}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
@@ -112,8 +116,9 @@ const Signup = (props) => {
         Password{" "}
       </label>
       <input
-        type="text"
+        type="password"
         name="post"
+        required
         value={register.password}
         className="w-full max-w-xs rounded-md border-0 py-1.5 m-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:text-sm sm:leading-6"
         onChange={(e) => {
