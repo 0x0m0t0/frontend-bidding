@@ -22,6 +22,7 @@ const AllLobby = () => {
         else return res.json();
       })
       .then((data) => {
+        console.log(data);
         setLobbies(data);
       })
       .catch((err) => {
@@ -41,10 +42,19 @@ const AllLobby = () => {
         {lobbies?.length > 0 ? (
           lobbies?.map((item, i) => {
             return (
-              <div key={item?.id + item?.created_at} className="p-2">
+              <div
+                key={item?.id + item?.created_at}
+                className="p-2 max-w-[10rem]"
+              >
                 <div className="border p-2">
-                  {/* <img src={item?.cover_lobby} alt={item?.name} /> */}
-                  <p>id: {item?.id}</p>
+                  <p>{item?.name}</p>
+                  <div className="max-w-[10rem] object-cover">
+                    <img
+                      className="rounded-2xl"
+                      src={item?.cover_lobby}
+                      alt={item?.name}
+                    />
+                  </div>
                   <p>likes: {item?.likes}</p>
                   <Link to={`/lobby/${item?.id}`} className="underline">
                     Lobby {item?.id}

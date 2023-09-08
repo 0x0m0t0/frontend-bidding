@@ -8,9 +8,11 @@ const NewItem = () => {
   const [item, setItem] = useState({
     itemName: "",
     auctionStart: new Date().toISOString(), // to be changed
-    auctionDuration: 100000,
+    auctionDuration: 10000,
     itemDescription: "",
     coverLobby: "",
+    tags: [],
+    pictures: [],
   });
 
   const updateForm = (formKey, e) => {
@@ -105,6 +107,32 @@ const NewItem = () => {
           onChange={(e) => {
             e.preventDefault();
             updateForm("coverLobby", e);
+          }}
+        />
+      </label>
+
+      <label>
+        Tags:
+        <input
+          type="text"
+          name="tags"
+          value={item.tags}
+          onChange={(e) => {
+            e.preventDefault();
+            updateForm("tags", e);
+          }}
+        />
+      </label>
+
+      <label>
+        Pictures:
+        <input
+          type="url"
+          name="pictures"
+          value={item.pictures}
+          onChange={(e) => {
+            e.preventDefault();
+            updateForm("pictures", e);
           }}
         />
       </label>

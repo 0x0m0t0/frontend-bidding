@@ -103,15 +103,14 @@ const Profile = ({ users }) => {
           <h3 className="font-semibold">Auctions</h3>
           {auctions?.length > 0 ? (
             auctions.map((item) => (
-              <div className="flex" key={item?.created_at + item?.id}>
+              <div className="" key={item?.created_at + item?.id}>
                 <div>
                   <h2>{item?.name}</h2>
-                  <p className="bg-green-800">{item?.description}</p>
-                  <p className="bg-green-800">{item?.created_at}</p>
                 </div>
 
-                <div>
-                  <img className="rounded-full" src={item?.cover_lobby} />
+                <div className="max-w-[18.75rem] object-cover">
+                  <img className="rounded-2xl" src={item?.cover_lobby} />
+                  <p className="bg-green-800">{item?.created_at}</p>
                 </div>
               </div>
             ))
