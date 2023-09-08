@@ -142,16 +142,21 @@ export const HeartLike = () => {
 
   if (isClicked) {
     return (
-      <div>
-        {likes ? <p>{likes}</p> : <p>Loading likes...</p>}
-        <Heart color="red" fill="red" size={24} onClick={handleClick} />
+      <div className="flex">
+        <Heart
+          color="midnight-blue"
+          fill="midnight-blue"
+          size={24}
+          onClick={handleClick}
+        />{" "}
+        {likes ? <p className="pl-2.5">{likes}</p> : <p>Loading likes...</p>}
       </div>
     );
   }
   return (
-    <div>
-      {likes ? <p>{likes}</p> : <p>Loading likes...</p>}
-      <Heart color="black" size={24} onClick={handleClick} />
+    <div className="flex">
+      <Heart color="black" size={24} onClick={handleClick} />{" "}
+      {likes ? <p className="pl-2.5">{likes}</p> : <p>Loading likes...</p>}
     </div>
   );
 };

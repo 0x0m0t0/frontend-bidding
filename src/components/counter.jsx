@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-export const PennyCounter = () => {
-  const [counter, setCounter] = useState(0);
-
-  //increase counter
-  const increase = () => {
-    setCounter((count) => count + 1);
+export const PennyCounter = (props) => {
+  const Increase = () => {
+    props.setCounter((count) => count + 1);
   };
-
   return (
     <div>
-      <p>{counter}</p>
-      <button onClick={increase}>Increase here</button>
+      <button
+        className="p-4 rounded border hover:bg-midnightblue hover:text-white"
+        onClick={Increase}
+      >
+        +1€
+      </button>
     </div>
   );
 };
