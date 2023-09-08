@@ -73,8 +73,8 @@ const Profile = ({ users }) => {
   return (
     <div className="flex flex-col self-center items-center">
       {userInfo.length > 0 ? (
-        <h2 key={userInfo[0]?.email} className="text-3xl">
-          Hello, welcome to your profile <em>{userInfo[0]?.name}</em>
+        <h2 key={userInfo[0]?.email} className="text-2xl">
+          Welcome <em>{userInfo[0]?.name}</em>
         </h2>
       ) : (
         <p>Error fetching user account data</p>
@@ -100,24 +100,25 @@ const Profile = ({ users }) => {
         </section>
 
         <section className="p-3">
-          <h3 className="font-semibold">Auctions</h3>
-          {auctions?.length > 0 ? (
-            auctions.map((item) => (
-              <div className="flex" key={item?.created_at + item?.id}>
-                <div>
-                  <h2>{item?.name}</h2>
-                  <p className="bg-green-800">{item?.description}</p>
-                  <p className="bg-green-800">{item?.created_at}</p>
-                </div>
+          <h3 className="font-semibold ">Auctions</h3>
+          <div className="">
+            {auctions?.length > 0 ? (
+              auctions.map((item) => (
+                <div className="first:pt-4" key={item?.created_at + item?.id}>
+                  <div>
+                    <h2>{item?.name}</h2>
+                  </div>
 
-                <div>
-                  <img className="rounded-full" src={item?.cover_lobby} />
+                  <div className="max-w-[18.75rem] object-cover pb-2">
+                    <img className="rounded-2xl" src={item?.cover_lobby} />
+                    <p className="text-sm">{item?.created_at}</p>
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <h2 className="empty">Nothing yet</h2>
-          )}
+              ))
+            ) : (
+              <h2 className="empty">Nothing yet</h2>
+            )}
+          </div>
         </section>
         <section className="p-3">
           <h3 className="font-semibold">Liked</h3>

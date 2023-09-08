@@ -6,12 +6,14 @@ import { PennyCounter } from "./counter";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
+  const [counter, setCounter] = useState(0);
   const { lobbyid } = useParams();
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
   const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
+
   const [post, setPost] = useState({
     lobby_id: lobbyid,
     message: ``,
@@ -133,17 +135,14 @@ const Lobby = () => {
 
   return (
     <>
-      <PennyCounter />
-      <HeartLike />
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg bg-yellow-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded border-green-100 m-2"
+                className="flex border rounded "
                 key={item?.lobby?.created_at + item?.id}
               >
-                {/* {console.log(item)} */}
                 <div>
                   <img
                     className="rounded"
@@ -151,15 +150,13 @@ const Lobby = () => {
                     alt=""
                   />
 
-                  <div className="border rounded border-green-100">
-                    <p className="bg-green-400 border-green-100">
-                      {item?.item?.name}
-                    </p>
+                  <div className="border rounded ">
+                    <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
                     <p className="p-3">{item?.lobby?.created_at}</p>
                   </div>
                   <div>
-                    <p className="bg-green-600">Status: {item?.item?.status}</p>
+                    <p className="">Status: {item?.item?.status}</p>
                   </div>
 
                   <div className="flex">
@@ -184,26 +181,64 @@ const Lobby = () => {
             <></>
           )}
         </section>
-        <section className="flex h-80 flex-col bg-green-400 w-2/4 overflow-auto">
-          <div className="ref overflow-auto h-4/5 bg-red-400">
+        <section className="flex flex-col">
+          <div className="">
+            {init?.length > 0 ? (
+              init?.map((item, i) => (
+                <div
+                  className="flex"
+                  key={item?.lobby?.created_at + item?.item?.name}
+                >
+                  <div>
+                    <div>
+                      <div>
+                        <h2 className="text-3xl">{item?.item?.name}</h2>
+                      </div>
+                      <div className="flex">
+                        <div className="p-3">
+                          <HeartLike />
+                          <p className="text-sm">
+                            Closes in {item?.lobby?.created_at}
+                          </p>
+                        </div>
+
+                        <div className="p-3">
+                          <PennyCounter setCounter={setCounter} />
+                        </div>
+                        <div className="p-3">
+                          <p className="text-sm">Current Bid</p>
+                          <p className="text-2xl">{counter} €</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
+          </div>
+
+          <div className="ref overflow-auto h-4/5 ">
             <h3 className="font-semibold">Chat</h3>
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="flex border rounded border-green-100 m-2"
+                  className="flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex">
                     <h2>{item?.username}: </h2>
-                    <p className="bg-indigo-400">{item?.message}</p>
-                    <p className="bg-green-800">{item?.created_at}</p>
+                    <p className="">{item?.message}</p>
+                    <p className="">{item?.created_at}</p>
                   </div>
                 </div>
               ))
             ) : (
               <h2 className="empty">Nothing to be found here</h2>
             )}
-            <AlwaysScrollToBottom />
+            {/* // needs to be fixed */}
+            {/* <AlwaysScrollToBottom /> */}
           </div>
           <form className="overflow-auto h-auto" onSubmit={handleSubmit}>
             <label>New message</label>
