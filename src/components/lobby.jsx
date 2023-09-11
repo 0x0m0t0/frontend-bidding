@@ -147,7 +147,7 @@ const Lobby = () => {
                 className="flex border rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div className="displayed-lobby">
+                <div className="displayed-lobby bg-midnightblue">
                   <img
                     className="rounded"
                     src={item?.item?.cover_lobby}
@@ -164,7 +164,7 @@ const Lobby = () => {
                     <p className="p-3">Status: {item?.item?.status}</p>
                   </div>
 
-                  <div className="flex avatar">
+                  <div className="flex bg-white avatar">
                     <img
                       src={item?.seller?.avatar}
                       className="w-16 h-16 p-2 rounded-full"
@@ -195,7 +195,7 @@ const Lobby = () => {
                   key={item?.lobby?.created_at + item?.item?.name}
                 >
                   <div>
-                    <div className="ml-16 w-74 border border-black price-bidding">
+                    <div className="ml-16 w-74 bg-mustard border border-black price-bidding">
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
@@ -245,7 +245,7 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
-          <form className="overflow-auto border border-black ml-16 h-auto" onSubmit={handleSubmit}>
+          <form className="overflow-auto bg-mustard border border-black ml-16 h-auto" onSubmit={handleSubmit}>
             <label>New message</label>
             <input
               type="text"
