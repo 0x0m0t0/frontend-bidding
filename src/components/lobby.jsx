@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { HeartLike } from "./heartlike";
-import { PennyCounter } from "./counter";
+import { HeartLike } from "heartlike";
+import { PennyCounter } from "counter";
 
-import { CleanTime } from "./cleanTime";
+import { CleanTime } from "cleanTime";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
@@ -246,8 +246,10 @@ const Lobby = () => {
             {/* <AlwaysScrollToBottom /> */}
           </div>
 
-          <form className="overflow-auto bg-mustard border border-black ml-16 h-auto" onSubmit={handleSubmit}>
-
+          <form
+            className="overflow-auto bg-mustard border border-black ml-16 h-auto"
+            onSubmit={handleSubmit}
+          >
             <label>New message</label>
             <input
               type="text"
