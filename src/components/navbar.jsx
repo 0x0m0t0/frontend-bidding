@@ -19,7 +19,7 @@ export default function Nav() {
   const [cookies] = useCookies(["user"], ["user_id"]);
   return (
     <>
-      <div className="flex items-start justify-between mr-1 mb-12 pb-2 pt-2 pr-6 pl-6">
+      <div className="flex items-start justify-between mr-1 mb-11 pb-2 pt-2 pr-6 pl-6">
         <Link to={`/`}>
           <img className="h-20 w-25 p-3 pr-40 -mt-5" src={beehiveLogo} />
         </Link>

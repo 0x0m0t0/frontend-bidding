@@ -7,7 +7,7 @@ export const PennyCounter = (props) => {
   return (
     <div>
       <button
-        className="p-4 rounded border hover:bg-midnightblue hover:text-white"
+        className="p-3 rounded bg-white border border-midnightblue border hover:bg-midnightblue hover:text-white hover:border border white"
         onClick={Increase}
       >
         +1€
