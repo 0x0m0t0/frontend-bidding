@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import DateTimePicker from "react-datetime-picker";
 import "react-calendar/dist/Calendar.css";
-import "./style/datepick.css";
+import "./style/NewItem.css";
 
 import { useNavigate } from "react-router-dom";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
