@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
-
+import DateTimePicker from "react-datetime-picker";
+import "react-datetime-picker/dist/DateTimePicker.css";
+import "react-calendar/dist/Calendar.css";
+import "react-clock/dist/Clock.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const NewItem = () => {
+  const [value, onChange] = useState(new Date());
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
     itemName: "",
-    auctionStart: new Date().toISOString(), // isostring good
+    auctionStart: value.toISOString(), // isostring good
     auctionDuration: 10000, // ms
     itemDescription: "",
     coverLobby: "",
@@ -57,6 +61,7 @@ const NewItem = () => {
         .then((res) => res.json())
         .then((post) => {
           console.log(post);
+          console.log(value);
         })
         .catch((err) => {
           console.log(err.message);
@@ -67,78 +72,85 @@ const NewItem = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <No />
-      <label>
-        Item name:
-        <input
-          type="text"
-          name="name"
-          required
-          value={item.itemName}
-          onChange={(e) => {
-            e.preventDefault();
-            updateForm("itemName", e);
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Description:
-        <input
-          type="text"
-          value={item.itemDescription}
-          onChange={(e) => {
-            e.preventDefault();
-            updateForm("itemDescription", e);
-          }}
-        />
-      </label>
+    <>
+      <form onSubmit={handleSubmit}>
+        <No />
+        <label>
+          Item name:
+          <input
+            type="text"
+            name="name"
+            required
+            value={item.itemName}
+            onChange={(e) => {
+              e.preventDefault();
+              updateForm("itemName", e);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Description:
+          <input
+            type="text"
+            value={item.itemDescription}
+            onChange={(e) => {
+              e.preventDefault();
+              updateForm("itemDescription", e);
+            }}
+          />
+        </label>
 
-      <br />
+        <br />
 
-      <label>
-        Image cover:
-        <input
-          type="url"
-          name="post"
-          required
-          value={item.coverLobby}
-          onChange={(e) => {
-            e.preventDefault();
-            updateForm("coverLobby", e);
-          }}
-        />
-      </label>
-
-      <label>
-        Tags:
-        <input
-          type="text"
-          name="tags"
-          value={item.tags}
-          onChange={(e) => {
-            e.preventDefault();
-            updateForm("tags", e);
-          }}
-        />
-      </label>
-
-      <label>
-        Pictures:
-        <input
-          type="url"
-          name="pictures"
-          value={item.pictures}
-          onChange={(e) => {
-            e.preventDefault();
-            updateForm("pictures", e);
-          }}
-        />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+        <label>
+          Image cover:
+          <input
+            type="url"
+            name="post"
+            required
+            value={item.coverLobby}
+            onChange={(e) => {
+              e.preventDefault();
+              updateForm("coverLobby", e);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Start Time:
+          <DateTimePicker onChange={onChange} value={value} />
+        </label>
+        <br />
+        <label>
+          Tags:
+          <input
+            type="text"
+            name="tags"
+            value={item.tags}
+            onChange={(e) => {
+              e.preventDefault();
+              updateForm("tags", e);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Pictures:
+          <input
+            type="url"
+            name="pictures"
+            value={item.pictures}
+            onChange={(e) => {
+              e.preventDefault();
+              updateForm("pictures", e);
+            }}
+          />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 };
 
