@@ -5,6 +5,7 @@ import user from "../utils/user_account";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Profile = ({ users }) => {
+  let pick = "2023-09-11T14:32:00.000Z";
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [userInfo, setUserInfo] = useState([]);
   const [bids, setBids] = useState([]);

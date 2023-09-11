@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { HeartLike } from "./heartlike";
 import { PennyCounter } from "./counter";
+
+import { CleanTime } from "./cleanTime";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
@@ -42,6 +44,7 @@ const Lobby = () => {
         else return res.json();
       })
       .then((data) => {
+        console.log(data);
         setInit([data]);
       })
       .catch((err) => {
@@ -115,9 +118,10 @@ const Lobby = () => {
       alert("Not allowed, please login");
     }
   };
-
+  let pick = "2023-09-11T14:32:00.000Z";
   useEffect(() => {
     // lobbyData();
+
     lobbyInit();
   }, []);
 
@@ -153,11 +157,12 @@ const Lobby = () => {
                   <div className="border rounded m-8 item-info">
                     <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
-                    <p className="p-3">{item?.lobby?.created_at}</p>
 
-                    <p className="">Status: {item?.item?.status}</p>
+                    <p className="p-3">
+                      <CleanTime created={item?.lobby?.created_at} />
+                    </p>
+                    <p className="p-3">Status: {item?.item?.status}</p>
                   </div>
-                  
 
                   <div className="flex avatar">
                     <img

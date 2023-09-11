@@ -7,8 +7,8 @@ const NewItem = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
     itemName: "",
-    auctionStart: new Date().toISOString(), // to be changed
-    auctionDuration: 10000,
+    auctionStart: new Date().toISOString(), // isostring good
+    auctionDuration: 10000, // ms
     itemDescription: "",
     coverLobby: "",
     tags: [],
