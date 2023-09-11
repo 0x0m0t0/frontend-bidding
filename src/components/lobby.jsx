@@ -195,7 +195,7 @@ const Lobby = () => {
                   key={item?.lobby?.created_at + item?.item?.name}
                 >
                   <div>
-                    <div className="ml-16 border border-black price-bidding">
+                    <div className="ml-16 w-74 border border-black price-bidding">
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
