@@ -66,7 +66,7 @@ const Profile = ({ users }) => {
   };
 
   useEffect(() => {
-    // Biddings();
+    Biddings();
     Auctions();
     Liked();
   }, []);

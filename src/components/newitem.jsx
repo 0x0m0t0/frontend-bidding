@@ -7,17 +7,26 @@ import "react-clock/dist/Clock.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const NewItem = () => {
-  const [value, onChange] = useState(new Date());
+  const [date, setDate] = useState(new Date());
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
     itemName: "",
-    auctionStart: value.toISOString(), // isostring good
+    auctionStart: "", // isostring good
     auctionDuration: 10000, // ms
     itemDescription: "",
     coverLobby: "",
     tags: [],
     pictures: [],
   });
+
+  const handleDateChange = (newValue) => {
+    setDate(newValue); // Update the DateTimePicker value state
+    // Update the auctionStart field in the item state with the selected date and time
+    setItem((prevForm) => ({
+      ...prevForm,
+      auctionStart: newValue.toISOString(),
+    }));
+  };
 
   const updateForm = (formKey, e) => {
     const { value } = e.target;
@@ -119,7 +128,21 @@ const NewItem = () => {
         <br />
         <label>
           Start Time:
-          <DateTimePicker onChange={onChange} value={value} />
+          <DateTimePicker
+            amPmAriaLabel="Select AM/PM"
+            calendarAriaLabel="Toggle calendar"
+            clearAriaLabel="Clear value"
+            dayAriaLabel="Day"
+            hourAriaLabel="Hour"
+            maxDetail="second"
+            minuteAriaLabel="Minute"
+            monthAriaLabel="Month"
+            nativeInputAriaLabel="Date and time"
+            onChange={handleDateChange}
+            secondAriaLabel="Second"
+            value={date}
+            yearAriaLabel="Year"
+          />
         </label>
         <br />
         <label>
