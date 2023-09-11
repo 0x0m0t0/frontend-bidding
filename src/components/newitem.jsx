@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import DateTimePicker from "react-datetime-picker";
-// import "react-datetime-picker/dist/DateTimePicker.css";
 import "react-calendar/dist/Calendar.css";
-import "./../assets/css/datepick.css";
+import "./style/datepick.css";
 
 import { useNavigate } from "react-router-dom";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
