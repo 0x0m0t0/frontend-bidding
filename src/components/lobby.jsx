@@ -164,7 +164,7 @@ const Lobby = () => {
                     <p className="p-3">Status: {item?.item?.status}</p>
                   </div>
 
-                  <div className="flex bg-white avatar">
+                  <div className="flex p-4 bg-white avatar">
                     <img
                       src={item?.seller?.avatar}
                       className="w-16 h-16 p-2 rounded-full"
@@ -224,7 +224,7 @@ const Lobby = () => {
             )}
           </div>
 
-          <div className="ref overflow-auto ml-16 border border-black h-4/5 ">
+          <div className="ref overflow-auto ml-16 border border-black h-3/5 ">
             <h3 className="font-semibold">Chat</h3>
             {messages?.length > 0 ? (
               messages.map((item, i) => (
@@ -245,21 +245,36 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
+          <form className="overflow-auto bg-mustard border border-black ml-16 h-24" onSubmit={handleSubmit}>
+            
+          <label className="m-6"></label>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+  <input
+    type="text"
+    name="message"
+    className="mt-0 mb-4 ml-7 p-3"
+    style={{
+      backgroundColor: 'white',
+      border: '1px solid #ccc',
+      paddingLeft: '10px',
+      marginRight: '10px',
+      flex: 1, // Allow the input to grow and fill available space
+    }}
+    placeholder="Type something..."
+    value={post.message}
+    onChange={(e) => {
+      e.preventDefault();
+      updateForm("message", e);
+    }}
+  />
+  <button
+    type="submit"
+    className="h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
+  >
+    Submit
+  </button>
+</div>
 
-          <form className="overflow-auto bg-mustard border border-black ml-16 h-auto" onSubmit={handleSubmit}>
-
-            <label>New message</label>
-            <input
-              type="text"
-              name="message"
-              value={post.message}
-              onChange={(e) => {
-                e.preventDefault();
-                updateForm("message", e);
-              }}
-            />
-            <br />
-            <button type="submit">Submit</button>
           </form>
         </section>
       </article>
