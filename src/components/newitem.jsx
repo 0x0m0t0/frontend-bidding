@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import DateTimePicker from "react-datetime-picker";
-import "react-datetime-picker/dist/DateTimePicker.css";
+// import "react-datetime-picker/dist/DateTimePicker.css";
 import "react-calendar/dist/Calendar.css";
-import "react-clock/dist/Clock.css";
+import "./../assets/css/datepick.css";
+
 import { useNavigate } from "react-router-dom";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -94,10 +95,12 @@ const NewItem = () => {
       {isSent ? (
         <form onSubmit={handleSubmit}>
           <No />
-          <label>
-            Item name:
+          <div className="w-full max-w-md mx-auto flex pb-2">
+            <label className="w-60 max-w-xs  self-center"> Item name </label>
             <input
+              className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               type="text"
+              placeholder="Name"
               name="name"
               required
               value={item.itemName}
@@ -106,11 +109,12 @@ const NewItem = () => {
                 updateForm("itemName", e);
               }}
             />
-          </label>
-          <br />
-          <label>
-            Description:
-            <input
+          </div>
+          <div className="w-full max-w-md mx-auto flex pb-2">
+            <label className="w-60 max-w-xs self-center"> Description</label>
+            <textarea
+              className="flex w-full h-10h-auto min-h-[80px] px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Product description"
               type="text"
               value={item.itemDescription}
               onChange={(e) => {
@@ -118,15 +122,13 @@ const NewItem = () => {
                 updateForm("itemDescription", e);
               }}
             />
-          </label>
-
-          <br />
-
-          <label>
-            Image cover:
+          </div>
+          <div className="w-full max-w-md mx-auto flex pb-6">
+            <label className="w-60 max-w-xs self-center"> Cover photo </label>
             <input
-              type="url"
-              name="post"
+              className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+              type="text"
+              placeholder="Cover photo"
               required
               value={item.coverLobby}
               onChange={(e) => {
@@ -134,11 +136,15 @@ const NewItem = () => {
                 updateForm("coverLobby", e);
               }}
             />
-          </label>
-          <br />
-          <label>
-            Start Time:
+          </div>
+          <div className="w-full max-w-md mx-auto flex pb-4">
+            <label className="w-60 max-w-xs self-center">
+              {" "}
+              Auction Start Date{" "}
+            </label>
+
             <DateTimePicker
+              className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               amPmAriaLabel="Select AM/PM"
               calendarAriaLabel="Toggle calendar"
               clearAriaLabel="Clear value"
@@ -153,11 +159,12 @@ const NewItem = () => {
               value={date}
               yearAriaLabel="Year"
             />
-          </label>
-          <br />
-          <label>
-            Tags:
+          </div>
+          <div className="w-full max-w-md mx-auto flex pb-2">
+            <label className="w-60 max-w-xs self-center"> Tags </label>
             <input
+              className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Tags"
               type="text"
               name="tags"
               value={item.tags}
@@ -166,11 +173,13 @@ const NewItem = () => {
                 updateForm("tags", e);
               }}
             />
-          </label>
-          <br />
-          <label>
-            Pictures:
+          </div>
+
+          <div className="w-full max-w-md mx-auto flex pb-4">
+            <label className="w-60 max-w-xs self-center "> Pictures </label>
             <input
+              className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Auction Images"
               type="url"
               name="pictures"
               value={item.pictures}
@@ -179,9 +188,16 @@ const NewItem = () => {
                 updateForm("pictures", e);
               }}
             />
-          </label>
-          <br />
-          <button type="submit">Submit</button>
+          </div>
+
+          <div className="w-full max-w-md mx-auto flex pb-2">
+            <button
+              type="submit"
+              className="flex w-full h-10 px-3 py-2 text-sm inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide bg-midnightblue text-mustard transition-colors duration-200 rounded-md hover:bg-mustard hover:text-midnightblue focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       ) : (
         <>
