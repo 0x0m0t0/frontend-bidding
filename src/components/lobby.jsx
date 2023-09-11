@@ -245,7 +245,9 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
+
           <form className="overflow-auto bg-mustard border border-black ml-16 h-auto" onSubmit={handleSubmit}>
+
             <label>New message</label>
             <input
               type="text"
