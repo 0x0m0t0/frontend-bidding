@@ -144,29 +144,26 @@ const Lobby = () => {
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded "
+                className="flex border rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div>
+                <div className="displayed-lobby">
                   <img
                     className="rounded"
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
 
-                  <div className="border rounded ">
+                  <div className="border rounded m-8 item-info">
                     <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
 
-                    <h2>
+                    <p className="p-3">
                       <CleanTime created={item?.lobby?.created_at} />
-                    </h2>
-                  </div>
-                  <div>
-                    <p className="">Status: {item?.item?.status}</p>
+                    </p>
                   </div>
 
-                  <div className="flex">
+                  <div className="flex avatar">
                     <img
                       src={item?.seller?.avatar}
                       className="w-16 h-16 p-2 rounded-full"
@@ -197,7 +194,7 @@ const Lobby = () => {
                   key={item?.lobby?.created_at + item?.item?.name}
                 >
                   <div>
-                    <div>
+                    <div className="ml-16 price-bidding">
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
