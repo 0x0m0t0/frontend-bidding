@@ -161,6 +161,7 @@ const Lobby = () => {
                     <p className="p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>
+                    <p className="p-3">Status: {item?.item?.status}</p>
                   </div>
 
                   <div className="flex avatar">
