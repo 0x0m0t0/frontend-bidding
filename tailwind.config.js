@@ -6,9 +6,7 @@ export default {
       colors: {
         midnightblue: "#1c1a4f",
         mustard: "#f5d63b",
-      },
-      width: {
-        '90': '90%',
+      
       },
     },
   },

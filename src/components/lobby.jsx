@@ -190,7 +190,7 @@ const Lobby = () => {
                   key={item?.lobby?.created_at + item?.item?.name}
                 >
                   <div>
-                    <div className="ml-16 price-bidding">
+                    <div className="ml-16 border border-black price-bidding">
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
@@ -219,12 +219,12 @@ const Lobby = () => {
             )}
           </div>
 
-          <div className="ref overflow-auto h-4/5 ">
+          <div className="ref overflow-auto ml-16 border border-black h-4/5 ">
             <h3 className="font-semibold">Chat</h3>
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="flex border rounded  m-2"
+                  className="border border-black ml-16 flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex">
@@ -240,7 +240,7 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
-          <form className="overflow-auto h-auto" onSubmit={handleSubmit}>
+          <form className="overflow-auto border border-black ml-16 h-auto" onSubmit={handleSubmit}>
             <label>New message</label>
             <input
               type="text"
