@@ -154,7 +154,7 @@ const Lobby = () => {
                     alt=""
                   />
 
-                  <div className="border rounded m-8 item-info">
+                  <div className="rounded text-white m-8 item-info">
                     <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
 
