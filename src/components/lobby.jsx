@@ -140,17 +140,17 @@ const Lobby = () => {
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded "
+                className="flex border rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
                 <div className="displayed-lobby">
                   <img
-                    className="w-20 rounded"
+                    className="rounded"
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
 
-                  <div className="border rounded item-info">
+                  <div className="border rounded m-8 item-info">
                     <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
                     <p className="p-3">{item?.lobby?.created_at}</p>
