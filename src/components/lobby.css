@@ -1,12 +1,104 @@
+/* ca marche pas  */
+img {
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+   
 
+}
+.item-info{
+    width: 640px;
+    border-radius:0;
+    border-top: solid 15px #1c1a4f;
+}
+.item-name{
+    font-weight: 600;
+
+}
+.item-description{
+    font-weight: 500;
+
+}
+.posted-on{
+    font-weight: 200;
+
+}
+.status{
+    font-weight: 300;
+
+}
+
+.avatar{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+
+}
 
 .price-bidding{
-    width: 400px;
+    width: 34rem;
+    border-top-right-radius: 30px; 
+    border-top-left-radius: 30px; 
 }
+.price-bidding h2 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.current-bid{
+    margin-left: 43px;
+}
+
 .chat{
-    width: 400px;
+    width: 34rem;
     font-size: 15px;
+    
+    border-top : none;
     
 }
 
+.conv{
+padding: 7px;
+display:inline-block;
 
+}
+.msg{
+    margin-left: 13px;
+
+}
+.time {
+    font-weight: 100;
+}
+.bulle{
+    margin: 0px 12px 0px 12px;
+}
+.username{
+    font-weight: 600;
+}
+
+.bottom{
+    float: right;
+    align-self: flex-end;
+
+}
+
+.like{
+    margin: 10px;
+    margin-left: 30px;
+
+}
+
+.chat h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.form{
+    border-bottom-right-radius: 8px; 
+    border-bottom-left-radius: 8px; 
+}
+
+.submitbtn{
+    margin-bottom: 20px;
+    padding-top: 12px;
+  padding-bottom: 34px;
+}

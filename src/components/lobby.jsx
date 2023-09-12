@@ -141,28 +141,29 @@ const Lobby = () => {
   return (
     <>
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded"
+                className="flex rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div className="displayed-lobby bg-midnightblue">
+                <div className="displayed-lobby">
                   <img
-                    className="rounded"
+                    className=""
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
+                  <div className="rounded text-white bg-midnightblue item-info">
+                    <p className="item-name">{item?.item?.name}</p>
+                    <p className="item-description p-3">{item?.item?.description}</p>
 
-                  <div className="rounded text-white m-8 item-info">
-                    <p className="">{item?.item?.name}</p>
-                    <p className="p-3">{item?.item?.description}</p>
-
-                    <p className="p-3">
+                    
+                    <p className="status p-3">Status: {item?.item?.status}</p>
+                    <p className="posted-on p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>
-                    <p className="p-3">Status: {item?.item?.status}</p>
+
                   </div>
 
                   <div className="flex p-4 bg-white avatar">
@@ -188,6 +189,7 @@ const Lobby = () => {
           )}
         </section>
         <section className="flex flex-col">
+          
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -201,17 +203,17 @@ const Lobby = () => {
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
                       <div className="flex">
-                        <div className="p-3">
-                          <HeartLike />
+                        <div className="p-3 like ">
+                          <div className="likelogo"> <HeartLike /> </div>
                           <p className="text-sm">
-                            Closes in {item?.lobby?.created_at}
+                            <br/> Closes in {item?.lobby?.created_at}
                           </p>
                         </div>
 
                         <div className="p-3">
                           <PennyCounter setCounter={setCounter} />
                         </div>
-                        <div className="p-3">
+                        <div className="p-3 current-bid">
                           <p className="text-sm">Current Bid</p>
                           <p className="text-2xl">{counter} €</p>
                         </div>
@@ -230,13 +232,14 @@ const Lobby = () => {
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="border border-black ml-16 flex border rounded  m-2"
+                  className="bulle overflow-auto border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
-                  <div className="flex">
-                    <h2>{item?.username}: </h2>
-                    <p className="">{item?.message}</p>
-                    <p className="">{item?.created_at}</p>
+                  <div className="flex conv">
+                    <h2 className="username">{item?.username}: </h2>
+                    <p className="msg">{item?.message}</p>
+                    
+                    <p className="time">{item?.created_at}</p>
                   </div>
                 </div>
               ))
@@ -246,7 +249,7 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
-          <form className="overflow-auto bg-mustard border border-black ml-16 h-24 chat" onSubmit={handleSubmit}>
+          <form className="form overflow-auto bg-mustard border border-black ml-16 h-24 chat" onSubmit={handleSubmit}>
             
           <label className="m-6"></label>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
@@ -270,7 +273,7 @@ const Lobby = () => {
   />
   <button
     type="submit"
-    className="h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
+    className="submitbtn h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
   >
     Submit
   </button>
