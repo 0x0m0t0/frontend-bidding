@@ -1,7 +1,14 @@
 /* ca marche pas  */
-img .displayed-lobby{
-    border-top-left-radius: 50%; 
+img {
+    border-top-left-radius: 30px; 
     border-top-right-radius: 30px; 
+   
+
+}
+.item-info{
+    width: 640px;
+    border-radius:0;
+    border-top: solid 15px #1c1a4f;
 }
 .item-name{
     font-weight: 600;
@@ -17,6 +24,13 @@ img .displayed-lobby{
 }
 .status{
     font-weight: 300;
+
+}
+
+.avatar{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
 
 }
 

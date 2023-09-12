@@ -141,20 +141,20 @@ const Lobby = () => {
   return (
     <>
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded"
+                className="flex rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div className="displayed-lobby bg-midnightblue">
+                <div className="displayed-lobby">
                   <img
-                    className="rounded"
+                    className=""
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
-                  <div className="rounded text-white m-4 item-info">
+                  <div className="rounded text-white bg-midnightblue item-info">
                     <p className="item-name">{item?.item?.name}</p>
                     <p className="item-description p-3">{item?.item?.description}</p>
 
@@ -163,7 +163,7 @@ const Lobby = () => {
                     <p className="posted-on p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>
-                    
+
                   </div>
 
                   <div className="flex p-4 bg-white avatar">
