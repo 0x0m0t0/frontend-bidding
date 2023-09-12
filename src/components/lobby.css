@@ -1,10 +1,25 @@
-
+/* ca marche pas  */
 img .displayed-lobby{
     border-top-left-radius: 50%; 
     border-top-right-radius: 30px; 
-
+}
+.item-name{
+    font-weight: 600;
 
 }
+.item-description{
+    font-weight: 500;
+
+}
+.posted-on{
+    font-weight: 200;
+
+}
+.status{
+    font-weight: 300;
+
+}
+
 .price-bidding{
     width: 34rem;
     border-top-right-radius: 30px; 

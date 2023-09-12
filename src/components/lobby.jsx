@@ -154,14 +154,16 @@ const Lobby = () => {
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
-                  <div className="rounded text-white m-8 item-info">
-                    <p className="">{item?.item?.name}</p>
-                    <p className="p-3">{item?.item?.description}</p>
+                  <div className="rounded text-white m-4 item-info">
+                    <p className="item-name">{item?.item?.name}</p>
+                    <p className="item-description p-3">{item?.item?.description}</p>
 
-                    <p className="p-3">
+                    
+                    <p className="status p-3">Status: {item?.item?.status}</p>
+                    <p className="posted-on p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>
-                    <p className="p-3">Status: {item?.item?.status}</p>
+                    
                   </div>
 
                   <div className="flex p-4 bg-white avatar">
@@ -230,7 +232,7 @@ const Lobby = () => {
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="bulle border border-black flex border rounded  m-2"
+                  className="bulle overflow-auto border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex conv">
