@@ -5,12 +5,12 @@ import user from "../utils/user_account";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Profile = ({ users }) => {
-  let pick = "2023-09-11T14:32:00.000Z";
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [userInfo, setUserInfo] = useState([]);
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
+  const [likedContent, setLikedContent] = useState("");
 
   user({ endpoint, cookies, setUserInfo });
 
@@ -57,7 +57,6 @@ const Profile = ({ users }) => {
       .then((res) => res.json())
       .then((post) => {
         setLikedPosts(post);
-        console.log("liked hahahahah");
         console.log(post);
       })
       .catch((err) => {
@@ -65,11 +64,47 @@ const Profile = ({ users }) => {
       });
   };
 
+  const likedData = async () => {
+    if (likedPosts?.length > 0) {
+      const updatedPosts = [];
+      await Promise.all(
+        likedPosts.map(async (item) => {
+          try {
+            const response = await fetch(
+              `${endpoint}/lobby/${item?.id_lobby}`,
+              {
+                method: "GET",
+                headers: {
+                  "Content-type": "application/json; charset=UTF-8",
+                },
+              }
+            );
+            const post = await response.json();
+            updatedPosts.push(post);
+          } catch (err) {
+            console.log(err.message);
+          }
+        })
+      );
+      setLikedContent(updatedPosts);
+      console.log(updatedPosts);
+    } else {
+      console.log("nada");
+    }
+  };
+
   useEffect(() => {
     Biddings();
     Auctions();
     Liked();
   }, []);
+
+  useEffect(() => {
+    likedData();
+  }, [likedPosts]);
+  useEffect(() => {
+    console.log(likedContent);
+  }, [likedContent]);
 
   return (
     <div className="flex flex-col self-center items-center">
@@ -81,7 +116,7 @@ const Profile = ({ users }) => {
         <p>Error fetching user account data</p>
       )}
 
-      <article className="flex">
+      <article className="flex w-full rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm">
         <section className="p-3">
           <h3 className="font-semibold">Bids</h3>
           {bids?.length > 0 ? (
@@ -96,7 +131,13 @@ const Profile = ({ users }) => {
               </div>
             ))
           ) : (
-            <h2 className="empty">Nothing yet</h2>
+            <>
+              <div className="m-4 rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full max-w-xs">
+                <div className="p-6">
+                  <p className="text-sm">No bids yet</p>
+                </div>
+              </div>
+            </>
           )}
         </section>
 
@@ -105,37 +146,65 @@ const Profile = ({ users }) => {
           <div className="">
             {auctions?.length > 0 ? (
               auctions.map((item) => (
-                <div className="first:pt-4" key={item?.created_at + item?.id}>
-                  <div>
-                    <h2>{item?.name}</h2>
-                  </div>
+                <>
+                  <div
+                    className="m-4 rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full max-w-xs"
+                    key={item?.created_at + item?.id}
+                  >
+                    <div className="relative">
+                      <img src={item?.cover_lobby} className="w-full h-auto" />
+                    </div>
+                    <div className="p-6">
+                      <h2 className="mb-2 text-lg font-bold leading-none tracking-tight">
+                        {item?.name}
+                      </h2>
 
-                  <div className="max-w-[18.75rem] object-cover pb-2">
-                    <img className="rounded-2xl" src={item?.cover_lobby} />
-                    <p className="text-sm">{item?.created_at}</p>
+                      <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+                        View Product
+                      </button>
+                      <p className="text-sm">{item?.created_at}</p>
+                    </div>
                   </div>
-                </div>
+                </>
               ))
             ) : (
-              <h2 className="empty">Nothing yet</h2>
+              <>
+                <div className="m-4 rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full max-w-xs">
+                  <div className="p-6">
+                    <p className="text-sm">Nothing yet</p>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </section>
         <section className="p-3">
           <h3 className="font-semibold">Liked</h3>
-          {likedPosts?.length > 0 ? (
-            likedPosts.map((item) => (
-              <div className="flex" key={item?.id_lobby + Date.now()}>
-                <div>
-                  <Link
-                    to={`/lobby/${item?.id_lobby}`}
-                    className="hover:underline"
+          {likedContent.length > 0 ? (
+            likedContent.map((item) =>
+              item.map((item) => (
+                <>
+                  <div
+                    className="m-4 rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full max-w-xs"
+                    key={item?.created_at + item?.end_at}
                   >
-                    {item?.id_lobby}
-                  </Link>
-                </div>
-              </div>
-            ))
+                    <div className="relative">
+                      <img src={item?.cover_lobby} className="w-full h-auto" />
+                    </div>
+                    <div className="p-6">
+                      <h2 className="mb-2 text-lg font-bold leading-none tracking-tight">
+                        {item?.name}
+                      </h2>
+                      <p className="text-sm">{item?.likes}</p>
+                      <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+                        View Product
+                      </button>
+                      <p className="text-sm">{item?.created_at}</p>
+                    </div>
+                  </div>
+                </>
+              ))
+            )
           ) : (
             <h2 className="empty">Nothing yet</h2>
           )}
