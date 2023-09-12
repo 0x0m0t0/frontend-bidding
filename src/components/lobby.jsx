@@ -188,6 +188,7 @@ const Lobby = () => {
           )}
         </section>
         <section className="flex flex-col">
+          
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -201,17 +202,17 @@ const Lobby = () => {
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
                       <div className="flex">
-                        <div className="p-3">
-                          <HeartLike />
+                        <div className="p-3 like ">
+                          <div className="likelogo"> <HeartLike /> </div>
                           <p className="text-sm">
-                            Closes in {item?.lobby?.created_at}
+                            <br/> Closes in {item?.lobby?.created_at}
                           </p>
                         </div>
 
                         <div className="p-3">
                           <PennyCounter setCounter={setCounter} />
                         </div>
-                        <div className="p-3">
+                        <div className="p-3 current-bid">
                           <p className="text-sm">Current Bid</p>
                           <p className="text-2xl">{counter} €</p>
                         </div>
@@ -233,10 +234,10 @@ const Lobby = () => {
                   className="border border-black ml-16 flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
-                  <div className="flex">
+                  <div className="flex conv">
                     <h2>{item?.username}: </h2>
                     <p className="">{item?.message}</p>
-                    <p className="">{item?.created_at}</p>
+                    <p className="bottom">{item?.created_at}</p>
                   </div>
                 </div>
               ))
@@ -246,7 +247,7 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
-          <form className="overflow-auto bg-mustard border border-black ml-16 h-24 chat" onSubmit={handleSubmit}>
+          <form className="form overflow-auto bg-mustard border border-black ml-16 h-24 chat" onSubmit={handleSubmit}>
             
           <label className="m-6"></label>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
