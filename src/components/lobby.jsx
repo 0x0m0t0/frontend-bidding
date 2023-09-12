@@ -154,7 +154,6 @@ const Lobby = () => {
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
-
                   <div className="rounded text-white m-8 item-info">
                     <p className="">{item?.item?.name}</p>
                     <p className="p-3">{item?.item?.description}</p>
@@ -231,13 +230,14 @@ const Lobby = () => {
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="border border-black ml-16 flex border rounded  m-2"
+                  className="bulle border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex conv">
-                    <h2>{item?.username}: </h2>
-                    <p className="">{item?.message}</p>
-                    <p className="bottom">{item?.created_at}</p>
+                    <h2 className="username">{item?.username}: </h2>
+                    <p className="msg">{item?.message}</p>
+                    
+                    <p className="time">{item?.created_at}</p>
                   </div>
                 </div>
               ))
@@ -271,7 +271,7 @@ const Lobby = () => {
   />
   <button
     type="submit"
-    className="h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
+    className="submitbtn h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
   >
     Submit
   </button>
