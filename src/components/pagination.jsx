@@ -1,4 +1,5 @@
 export const Pagination = () => {
+  // https://devdojo.com/pines/docs/pagination
   return (
     <div class="flex items-center justify-between w-full h-16 px-3 border-t border-neutral-200">
       <p class="pl-2 text-sm text-gray-700">
