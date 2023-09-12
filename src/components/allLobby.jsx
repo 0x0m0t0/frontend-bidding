@@ -44,8 +44,8 @@ const AllLobby = () => {
     lobbies?.map((item, i) => {
       return (
         <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '285px', height: '255px' }}>
-          <div className="collection border p-2">
-            <p>{item?.name}</p>
+          <div className="border collection2 p-2">
+            <p className="item">{item?.name}</p>
             <div className="max-w-[10rem] object-cover">
               <img className="rounded " src={item?.cover_lobby} alt={item?.name} />
             </div>
