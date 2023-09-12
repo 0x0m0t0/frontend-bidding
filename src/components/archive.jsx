@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Pagination } from "./pagination";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Archive = () => {
@@ -7,7 +8,7 @@ const Archive = () => {
 
   const fetchDummyData = async () => {
     try {
-      const response = await fetch(endpoint + "/historic");
+      const response = await fetch(endpoint + "/historic/1");
       const data = await response.json();
       setDummyArchive(data);
     } catch (error) {
@@ -21,6 +22,7 @@ const Archive = () => {
 
   return (
     <>
+      <Pagination />
       <div className="flex flex-col items-center">
         {dummyArchive?.length > 0 ? (
           dummyArchive.map((item) => (
