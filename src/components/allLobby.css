@@ -7,9 +7,8 @@
 }
 .collection img{
     margin: 20px 30px 20px 40px;
-    width: 180px auto;
-    height: 150px auto 
-    ;
+    width: 243px auto;
+    height: 190px auto ;
 }
 .collection2{
     border: solid 1px  #f5d63b;
@@ -23,5 +22,9 @@
     border: solid 1px  #f5d63b;
     color: white;
     padding: 6px 2px 6px 2px;
+}
+
+.heart{
+    font-size: 20px;
 }
 
