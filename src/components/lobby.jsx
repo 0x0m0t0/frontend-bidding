@@ -141,7 +141,7 @@ const Lobby = () => {
   return (
     <>
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+        <section className="w-2/4 h-full rounded-lg">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
@@ -150,7 +150,7 @@ const Lobby = () => {
               >
                 <div className="displayed-lobby">
                   <img
-                    className=""
+                    className="photo"
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
@@ -176,7 +176,7 @@ const Lobby = () => {
                       <p className="mb-2 text-xl font-medium leading-tight">
                         {item?.seller?.name}
                       </p>
-                      <p className="text-neutral-500 dark:text-neutral-400">
+                      <p className="text-neutral-500 ml-6 pl-7 dark:text-neutral-400">
                         User since {item?.seller?.created_at.slice(0, 7)}
                       </p>
                     </div>
@@ -203,7 +203,7 @@ const Lobby = () => {
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
                       <div className="flex">
-                        <div className="p-3 like ">
+                        <div className="p-4 like ">
                           <div className="likelogo"> <HeartLike /> </div>
                           <p className="text-sm">
                             <br/> Closes in {item?.lobby?.created_at}
@@ -214,7 +214,7 @@ const Lobby = () => {
                           <PennyCounter setCounter={setCounter} />
                         </div>
                         <div className="p-3 current-bid">
-                          <p className="text-sm">Current Bid</p>
+                          <p className="cb ">Current Bid</p>
                           <p className="text-2xl">{counter} €</p>
                         </div>
                       </div>
