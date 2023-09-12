@@ -39,15 +39,15 @@ const AllLobby = () => {
     <>
       <h1 className="text-4xl mb-10"> All the lobbies</h1>
 
-      <section className="flex flex-wrap -mx-4">
+      <section className=" flex flex-wrap -mx-4">
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
-        <div key={item?.id + item?.created_at} className="p-3 max-w-[calc(25% - 50px)] mx-4 mb-4">
-          <div className="border p-2">
+        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '285px', height: '255px' }}>
+          <div className="collection border p-2">
             <p>{item?.name}</p>
             <div className="max-w-[10rem] object-cover">
-              <img className="rounded-2xl" src={item?.cover_lobby} alt={item?.name} />
+              <img className="rounded " src={item?.cover_lobby} alt={item?.name} />
             </div>
             <p>likes: {item?.likes}</p>
             <Link to={`/lobby/${item?.id}`} className="underline">

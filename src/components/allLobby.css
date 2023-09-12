@@ -1,0 +1,13 @@
+.collection {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  /* width: 50%; */
+}
+.collection img{
+    margin: 20px 30px 20px 40px;
+    width: 180px auto;
+    height: 150px auto 
+    ;
+}
