@@ -17,7 +17,6 @@ const Lobby = () => {
   const [messages, setMessages] = useState([]);
 
   // bids
-
   const [bidFromLike, setBidFromLike] = useState(null);
   const handleDataFromLike = (data) => {
     setBidFromLike(data);
@@ -128,16 +127,14 @@ const Lobby = () => {
   let pick = "2023-09-11T14:32:00.000Z";
   useEffect(() => {
     // lobbyData();
-
     lobbyInit();
   }, []);
 
   useEffect(() => {
     chatData();
-    console.log(bidFromLike);
   }, [check]);
 
-  // setInterval(chatData(), 2000);
+  setInterval(chatData(), 2000);
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
