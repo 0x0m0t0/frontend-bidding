@@ -9,7 +9,6 @@ import "./lobby.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
-  const [counter, setCounter] = useState(0);
   const { lobbyid } = useParams();
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [check, setCheck] = useState([]);
@@ -18,6 +17,7 @@ const Lobby = () => {
   const [messages, setMessages] = useState([]);
 
   // bids
+
   const [bidFromLike, setBidFromLike] = useState(null);
   const handleDataFromLike = (data) => {
     setBidFromLike(data);
@@ -215,7 +215,10 @@ const Lobby = () => {
                         </div>
 
                         <div className="p-3">
-                          <PennyCounter setCounter={setCounter} />
+                          <PennyCounter
+                            bidFromLike={bidFromLike}
+                            lobbyId={lobbyid}
+                          />
                         </div>
                         <div className="p-3 current-bid">
                           <p className="cb ">Current Bid</p>
