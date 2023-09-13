@@ -219,7 +219,12 @@ const Lobby = () => {
                         </div>
                         <div className="p-3 current-bid">
                           <p className="cb ">Current Bid</p>
-                          <p className="text-2xl">{counter} €</p>
+
+                          {bidFromLike === null ? (
+                            <p className="text-2xl">0 €</p>
+                          ) : (
+                            <p className="text-2xl">{bidFromLike} €</p>
+                          )}
                         </div>
                       </div>
                     </div>
