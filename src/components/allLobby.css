@@ -2,11 +2,11 @@
     display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   /* border: solid 1px #1c1a4f; */
 }
 .collection img{
-    margin: 20px 30px 20px 40px;
+    margin: 0px 0px 0px 0px;
     width: 243px auto;
     height: 190px auto ;
 }

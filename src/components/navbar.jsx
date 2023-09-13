@@ -1,4 +1,4 @@
-import beehiveLogo from "./../assets/img/bidhive-logo.png";
+import beehiveLogo from "./../assets/img/bidhive.png";
 import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -22,7 +22,7 @@ export default function Nav() {
     <>
       <div className="menu-nav flex items-start justify-between ">
         <Link to={`/`}>
-          <img className= "logo p-3 pr-40 -mt-5" src={beehiveLogo} />
+          <img className= "logo" src={beehiveLogo} />
         </Link>
 
         {navigation.map((item) => (
@@ -31,7 +31,7 @@ export default function Nav() {
             href={item.href}
             className={classNames(
               item.current
-                ? "bg-midnightblue text-mustard"
+                ? "bg-mustard text-midnightblue border border-midnightblue"
                 : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
               "rounded-md px-3 py-2 mb-8 mr-1"
             )}
@@ -47,7 +47,7 @@ export default function Nav() {
           <Link to={`/login`}>
             <button
               className={
-                "login  text-midnightblue hover:bg-mustard hover:midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
+                "login p-4 bg-midnightblue text-mustard hover:bg-mustard hover:text-midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
               }
             >
               Login

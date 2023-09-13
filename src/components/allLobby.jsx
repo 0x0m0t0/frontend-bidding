@@ -44,10 +44,10 @@ const AllLobby = () => {
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
-        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '285px', height: '255px' }}>
+        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '300px', height: '255px' }}>
           <div className="border collection2 p-2">
             <p className="item">{item?.name}</p>
-            <div className="max-w-[10rem] object-cover">
+            <div className="max-w-[243px] object-cover">
               <img className="rounded " src={item?.cover_lobby} alt={item?.name} style={{ width: '243px' }}/>
             </div>
             <p className="heart"> ♥ {item?.likes}</p>
