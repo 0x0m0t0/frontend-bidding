@@ -49,6 +49,7 @@
     width: 34rem;
     border-top-right-radius: 30px; 
     border-top-left-radius: 30px; 
+    
 }
 .price-bidding h2 {
     margin-top: 20px;
@@ -57,10 +58,12 @@
 
 .current-bid{
     margin-left: 27px;
+    padding-left: 0;
+padding-right: 0;
 }
 
 .cb{
-    margin-top: 3px;
+    margin-top: 12px;
     
 }
 .chat{
@@ -117,4 +120,14 @@ display:inline-block;
 
 .avatarname {
     margin-left: 31px;
+}
+
+.plusbtn{
+    margin-top: 13px;
+}
+
+.closesin{
+    line-height: 0.85rem;
+    font-size: 15px;
+    font-weight: 200;
 }

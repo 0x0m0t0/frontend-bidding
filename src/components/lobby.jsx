@@ -209,12 +209,12 @@ const Lobby = () => {
                           <div className="likelogo">
                             <HeartLike onDataFromLike={handleDataFromLike} />
                           </div>
-                          <p className="text-sm">
+                          <p className="closesin text-sm">
                             <br /> Closes in {item?.lobby?.created_at}
                           </p>
                         </div>
 
-                        <div className="p-3">
+                        <div className="plusbtn p-3">
                           <PennyCounter
                             bidFromLike={bidFromLike}
                             lobbyId={lobbyid}
