@@ -1,0 +1,114 @@
+.likelogo{
+    width: 50px;
+}
+.photo {
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+    border: solid 1px #1c1a4f;
+   
+
+}
+.item-info{
+    width: 640px;
+    border-radius:0;
+    border-top: solid 15px #1c1a4f;
+    border: solid 1px #1c1a4f;;
+}
+.item-name{
+    font-weight: 600;
+    border-top: solid 15px #1c1a4f;
+
+}
+.item-description{
+    font-weight: 500;
+
+}
+.posted-on{
+    font-weight: 100;
+
+}
+.status{
+    font-weight: 300;
+
+}
+
+.avatar{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: solid 1px #1c1a4f;
+
+
+
+}
+
+.price-bidding{
+    width: 34rem;
+    border-top-right-radius: 30px; 
+    border-top-left-radius: 30px; 
+}
+.price-bidding h2 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.current-bid{
+    margin-left: 27px;
+}
+
+.cb{
+    margin-top: 3px;
+    
+}
+.chat{
+    width: 34rem;
+    font-size: 15px;
+    
+    border-top : none;
+    
+}
+
+.conv{
+padding: 7px;
+display:inline-block;
+
+}
+.msg{
+    margin-left: 13px;
+
+}
+.time {
+    font-weight: 100;
+}
+.bulle{
+    margin: 0px 12px 0px 12px;
+}
+.username{
+    font-weight: 600;
+}
+
+.bottom{
+    float: right;
+    align-self: flex-end;
+
+}
+
+.like{
+    margin: 10px;
+    margin-left: 30px;
+
+}
+
+.chat h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.form{
+   
+}
+
+.submitbtn{
+    margin-bottom: 20px;
+    padding-top: 12px;
+  padding-bottom: 34px;
+}

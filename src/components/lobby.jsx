@@ -5,6 +5,7 @@ import { HeartLike } from "./heartlike.jsx";
 import { PennyCounter } from "./counter";
 
 import { CleanTime } from "./cleanTime";
+import './lobby.css'
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
@@ -140,28 +141,29 @@ const Lobby = () => {
   return (
     <>
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <section className="w-2/4 h-full rounded-lg">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
-                className="flex border rounded"
+                className="flex rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div className="displayed-lobby bg-midnightblue">
+                <div className="displayed-lobby">
                   <img
-                    className="rounded"
+                    className="photo"
                     src={item?.item?.cover_lobby}
                     alt=""
                   />
+                  <div className="rounded text-white bg-midnightblue item-info">
+                    <p className="item-name">{item?.item?.name}</p>
+                    <p className="item-description p-3">{item?.item?.description}</p>
 
-                  <div className="rounded text-white m-8 item-info">
-                    <p className="">{item?.item?.name}</p>
-                    <p className="p-3">{item?.item?.description}</p>
-
-                    <p className="p-3">
+                    
+                    <p className="status p-3">Status: {item?.item?.status}</p>
+                    <p className="posted-on p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>
-                    <p className="p-3">Status: {item?.item?.status}</p>
+
                   </div>
 
                   <div className="flex p-4 bg-white avatar">
@@ -174,7 +176,7 @@ const Lobby = () => {
                       <p className="mb-2 text-xl font-medium leading-tight">
                         {item?.seller?.name}
                       </p>
-                      <p className="text-neutral-500 dark:text-neutral-400">
+                      <p className="text-neutral-500 ml-6 pl-7 dark:text-neutral-400">
                         User since {item?.seller?.created_at.slice(0, 7)}
                       </p>
                     </div>
@@ -187,6 +189,7 @@ const Lobby = () => {
           )}
         </section>
         <section className="flex flex-col">
+          
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -195,23 +198,23 @@ const Lobby = () => {
                   key={item?.lobby?.created_at + item?.item?.name}
                 >
                   <div>
-                    <div className="ml-16 w-74 bg-mustard border border-black price-bidding">
+                  <div className="ml-16 bg-mustard border border-black price-bidding">
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
                       <div className="flex">
-                        <div className="p-3">
-                          <HeartLike />
+                        <div className="p-4 like ">
+                          <div className="likelogo"> <HeartLike /> </div>
                           <p className="text-sm">
-                            Closes in {item?.lobby?.created_at}
+                            <br/> Closes in {item?.lobby?.created_at}
                           </p>
                         </div>
 
                         <div className="p-3">
                           <PennyCounter setCounter={setCounter} />
                         </div>
-                        <div className="p-3">
-                          <p className="text-sm">Current Bid</p>
+                        <div className="p-3 current-bid">
+                          <p className="cb ">Current Bid</p>
                           <p className="text-2xl">{counter} €</p>
                         </div>
                       </div>
@@ -224,18 +227,19 @@ const Lobby = () => {
             )}
           </div>
 
-          <div className="ref overflow-auto ml-16 border border-black h-3/5 ">
+          <div className="ref overflow ml-16 border border-black chat h-3/5 ">
             <h3 className="font-semibold">Chat</h3>
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="border border-black ml-16 flex border rounded  m-2"
+                  className="bulle overflow-auto border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
-                  <div className="flex">
-                    <h2>{item?.username}: </h2>
-                    <p className="">{item?.message}</p>
-                    <p className="">{item?.created_at}</p>
+                  <div className="flex conv">
+                    <h2 className="username">{item?.username}: </h2>
+                    <p className="msg">{item?.message}</p>
+                    
+                    <p className="time">{item?.created_at}</p>
                   </div>
                 </div>
               ))
@@ -245,61 +249,36 @@ const Lobby = () => {
             {/* // needs to be fixed */}
             {/* <AlwaysScrollToBottom /> */}
           </div>
-          <form
-            className="overflow-auto bg-mustard border border-black ml-16 h-24"
-            onSubmit={handleSubmit}
-          >
-            <label className="m-6"></label>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-              }}
-            >
-              <input
-                type="text"
-                name="message"
-                className="mt-0 mb-4 ml-7 p-3"
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid #ccc",
-                  paddingLeft: "10px",
-                  marginRight: "10px",
-                  flex: 1, // Allow the input to grow and fill available space
-                }}
-                placeholder="Type something..."
-                value={post.message}
-                onChange={(e) => {
-                  e.preventDefault();
-                  updateForm("message", e);
-                }}
-              />
-              <button
-                type="submit"
-                className="h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+          <form className="form overflow-auto bg-mustard border border-black ml-16 h-24 chat" onSubmit={handleSubmit}>
+            
+          <label className="m-6"></label>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+  <input
+    type="text"
+    name="message"
+    className="mt-0 mb-4 ml-7 p-3"
+    style={{
+      backgroundColor: 'white',
+      border: '1px solid #ccc',
+      paddingLeft: '10px',
+      marginRight: '10px',
+      flex: 1, // Allow the input to grow and fill available space
+    }}
+    placeholder="Type something..."
+    value={post.message}
+    onChange={(e) => {
+      e.preventDefault();
+      updateForm("message", e);
+    }}
+  />
+  <button
+    type="submit"
+    className="submitbtn h-10 mr-7 w-24  text-center bg-midnightblue text-mustard"
+  >
+    Submit
+  </button>
+</div>
 
-          <form
-            className="overflow-auto bg-mustard border border-black ml-16 h-auto"
-            onSubmit={handleSubmit}
-          >
-            <label>New message</label>
-            <input
-              type="text"
-              name="message"
-              value={post.message}
-              onChange={(e) => {
-                e.preventDefault();
-                updateForm("message", e);
-              }}
-            />
-            <br />
-            <button type="submit">Submit</button>
           </form>
         </section>
       </article>
