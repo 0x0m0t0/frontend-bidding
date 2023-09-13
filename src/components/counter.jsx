@@ -25,7 +25,7 @@ export const PennyCounter = (props) => {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
           "Access-Control-Allow-Origin": endpoint,
-          "Access-Control-Allow-Origin": "https://auction.oxomoto.co/",
+
           authentication: cookies.user,
         },
       })
