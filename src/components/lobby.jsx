@@ -169,7 +169,7 @@ const Lobby = () => {
                       alt="Avatar"
                     />
                     <div className="flex flex-col">
-                      <p className="mb-2 text-xl font-medium leading-tight">
+                      <p className="avatarname mb-2 text-xl font-medium leading-tight">
                         {item?.seller?.name}
                       </p>
                       {/* <p className="text-neutral-500 ml-6 pl-7 dark:text-neutral-400">

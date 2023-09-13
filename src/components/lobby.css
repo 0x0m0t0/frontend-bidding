@@ -107,9 +107,7 @@ display:inline-block;
     margin-bottom: 10px;
     font-size: 18px;
 }
-.form{
-   
-}
+
 
 .submitbtn{
     margin-bottom: 20px;
@@ -117,3 +115,6 @@ display:inline-block;
   padding-bottom: 34px;
 }
 
+.avatarname {
+    margin-left: 31px;
+}
