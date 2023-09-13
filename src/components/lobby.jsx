@@ -17,6 +17,12 @@ const Lobby = () => {
   const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
 
+  // bids
+  const [bidFromLike, setBidFromLike] = useState(null);
+  const handleDataFromLike = (data) => {
+    setBidFromLike(data);
+  };
+
   const [post, setPost] = useState({
     lobby_id: lobbyid,
     message: ``,
@@ -128,6 +134,7 @@ const Lobby = () => {
 
   useEffect(() => {
     chatData();
+    console.log(bidFromLike);
   }, [check]);
 
   // setInterval(chatData(), 2000);
@@ -200,8 +207,7 @@ const Lobby = () => {
                       <div className="flex">
                         <div className="p-4 like ">
                           <div className="likelogo">
-                            {" "}
-                            <HeartLike />{" "}
+                            <HeartLike onDataFromLike={handleDataFromLike} />
                           </div>
                           <p className="text-sm">
                             <br /> Closes in {item?.lobby?.created_at}
