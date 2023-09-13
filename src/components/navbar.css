@@ -1,0 +1,22 @@
+.menu-nav{
+    font-size: 18px;
+    height: 130px;
+
+}
+
+.login{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.logo{
+padding-top: 0.5em;
+  margin-top: -8px;
+}
+    
+a{
+  padding-top: 11px;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-bottom: 11px;
+}

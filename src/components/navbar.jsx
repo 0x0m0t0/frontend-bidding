@@ -2,6 +2,7 @@ import beehiveLogo from "./../assets/img/bidhive-logo.png";
 import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import './navbar.css'
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -19,9 +20,9 @@ export default function Nav() {
   const [cookies] = useCookies(["user"], ["user_id"]);
   return (
     <>
-      <div className="flex items-start justify-between mr-1 mb-11 pb-2 pt-2 pr-6 pl-6">
+      <div className="menu-nav flex items-start justify-between ">
         <Link to={`/`}>
-          <img className="h-20 w-25 p-3 pr-40 -mt-5" src={beehiveLogo} />
+          <img className= "logo p-3 pr-40 -mt-5" src={beehiveLogo} />
         </Link>
 
         {navigation.map((item) => (
@@ -32,7 +33,7 @@ export default function Nav() {
               item.current
                 ? "bg-midnightblue text-mustard"
                 : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
-              "rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
+              "rounded-md px-3 py-2 mb-8 mr-1"
             )}
             aria-current={item.current ? "page" : undefined}
           >
@@ -46,7 +47,7 @@ export default function Nav() {
           <Link to={`/login`}>
             <button
               className={
-                "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
+                "login  text-midnightblue hover:bg-mustard hover:midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
               }
             >
               Login
