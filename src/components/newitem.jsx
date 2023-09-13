@@ -14,8 +14,8 @@ const NewItem = () => {
   const [cookies, setCookie] = useCookies(["user"]);
   const [item, setItem] = useState({
     itemName: "",
-    auctionStart: "", // isostring good
-    auctionDuration: 10000, // ms
+    auctionStart: "",
+    auctionDuration: 1000000, // ms
     itemDescription: "",
     coverLobby: "",
     tags: [],
@@ -23,14 +23,17 @@ const NewItem = () => {
   });
 
   const handleDateChange = (newValue) => {
-    setDate(newValue); // Update the DateTimePicker value state
-    // Update the auctionStart field in the item state with the selected date and time
+    setDate(newValue);
     setItem((prevForm) => ({
       ...prevForm,
       auctionStart: newValue.toISOString(),
     }));
   };
-
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent Enter key from submitting the form
+    }
+  };
   const updateForm = (formKey, e) => {
     const { value } = e.target;
 
@@ -97,6 +100,7 @@ const NewItem = () => {
           <div className="w-full max-w-md mx-auto flex pb-2">
             <label className="w-60 max-w-xs  self-center"> Item name </label>
             <input
+              onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               type="text"
               placeholder="Name"
@@ -125,6 +129,7 @@ const NewItem = () => {
           <div className="w-full max-w-md mx-auto flex pb-6">
             <label className="w-60 max-w-xs self-center"> Cover photo </label>
             <input
+              onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               type="text"
               placeholder="Cover photo"
@@ -138,11 +143,11 @@ const NewItem = () => {
           </div>
           <div className="w-full max-w-md mx-auto flex pb-4">
             <label className="w-60 max-w-xs self-center">
-              {" "}
-              Auction Start Date{" "}
+              Auction Start Date
             </label>
 
             <DateTimePicker
+              onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               amPmAriaLabel="Select AM/PM"
               calendarAriaLabel="Toggle calendar"
@@ -162,6 +167,7 @@ const NewItem = () => {
           <div className="w-full max-w-md mx-auto flex pb-2">
             <label className="w-60 max-w-xs self-center"> Tags </label>
             <input
+              onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Tags"
               type="text"
@@ -177,6 +183,7 @@ const NewItem = () => {
           <div className="w-full max-w-md mx-auto flex pb-4">
             <label className="w-60 max-w-xs self-center "> Pictures </label>
             <input
+              onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Auction Images"
               type="url"
