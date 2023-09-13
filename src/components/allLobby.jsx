@@ -3,6 +3,7 @@ const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import './allLobby.css'
+import { HeartLike } from "./heartlike.jsx";
 
 const AllLobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
@@ -43,13 +44,13 @@ const AllLobby = () => {
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
-        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '285px', height: '255px' }}>
+        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '300px', height: '255px' }}>
           <div className="border collection2 p-2">
             <p className="item">{item?.name}</p>
-            <div className="max-w-[10rem] object-cover">
-              <img className="rounded " src={item?.cover_lobby} alt={item?.name} />
+            <div className="object-cover">
+              <img className=" " src={item?.cover_lobby} alt={item?.name}/>
             </div>
-            <p>likes: {item?.likes}</p>
+            <p className="heart"> ♥ {item?.likes}</p>
             <Link to={`/lobby/${item?.id}`} className="underline">
               Lobby {item?.id}
             </Link>

@@ -2,14 +2,16 @@
     display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
-  /* border: solid 1px #1c1a4f; */
+  margin-bottom: 80px;
 }
+
 .collection img{
-    margin: 20px 30px 20px 40px;
-    width: 180px auto;
-    height: 150px auto 
-    ;
+width: 256px;
+margin-left: 1px;
+margin-bottom: 7px;
+    
+   
+    height: 190px auto ;
 }
 .collection2{
     border: solid 1px  #f5d63b;
@@ -23,5 +25,9 @@
     border: solid 1px  #f5d63b;
     color: white;
     padding: 6px 2px 6px 2px;
+}
+
+.heart{
+    font-size: 20px;
 }
 
