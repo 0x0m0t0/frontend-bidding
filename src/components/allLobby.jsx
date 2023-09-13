@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import './allLobby.css'
+import "./allLobby.css";
 import { HeartLike } from "./heartlike.jsx";
+
 
 const AllLobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
@@ -15,7 +16,7 @@ const AllLobby = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-
+        "Access-Control-Allow-Origin": "https://auction.oxomoto.co/",
         authentication: cookies.user,
       },
     })
@@ -41,6 +42,7 @@ const AllLobby = () => {
       <h1 className="text-4xl mb-10"> All the lobbies</h1>
 
       <section className=" flex flex-wrap -mx-4">
+
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
@@ -62,6 +64,7 @@ const AllLobby = () => {
     <p>nothing yet</p>
   )}
 </section>
+
 
     </>
   );

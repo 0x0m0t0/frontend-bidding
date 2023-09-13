@@ -2,9 +2,6 @@ import { useState } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Signup = (props) => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [register, setRegister] = useState({
     name: "",
     email: "",
