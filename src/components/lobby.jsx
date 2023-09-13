@@ -9,13 +9,19 @@ import "./lobby.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
 const Lobby = () => {
-  const [counter, setCounter] = useState(0);
   const { lobbyid } = useParams();
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [check, setCheck] = useState([]);
   const [data, setData] = useState([]);
   const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
+
+  // bids
+
+  const [bidFromLike, setBidFromLike] = useState(null);
+  const handleDataFromLike = (data) => {
+    setBidFromLike(data);
+  };
 
   const [post, setPost] = useState({
     lobby_id: lobbyid,
@@ -128,6 +134,7 @@ const Lobby = () => {
 
   useEffect(() => {
     chatData();
+    console.log(bidFromLike);
   }, [check]);
 
   // setInterval(chatData(), 2000);
@@ -200,8 +207,7 @@ const Lobby = () => {
                       <div className="flex">
                         <div className="p-4 like ">
                           <div className="likelogo">
-                            {" "}
-                            <HeartLike />{" "}
+                            <HeartLike onDataFromLike={handleDataFromLike} />
                           </div>
                           <p className="text-sm">
                             <br /> Closes in {item?.lobby?.created_at}
@@ -209,11 +215,19 @@ const Lobby = () => {
                         </div>
 
                         <div className="p-3">
-                          <PennyCounter setCounter={setCounter} />
+                          <PennyCounter
+                            bidFromLike={bidFromLike}
+                            lobbyId={lobbyid}
+                          />
                         </div>
                         <div className="p-3 current-bid">
                           <p className="cb ">Current Bid</p>
-                          <p className="text-2xl">{counter} €</p>
+
+                          {bidFromLike === null ? (
+                            <p className="text-2xl">0 €</p>
+                          ) : (
+                            <p className="text-2xl">{bidFromLike} €</p>
+                          )}
                         </div>
                       </div>
                     </div>

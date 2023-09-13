@@ -168,7 +168,7 @@ const Profile = ({ users }) => {
 
                       <button
                         className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90"
-                        onClick={() => navigate(`/lobby/${item?.id}`)}
+                        // onClick={() => navigate(`/lobby/${item?.id}`)}
                       >
                         View Lobby
                       </button>

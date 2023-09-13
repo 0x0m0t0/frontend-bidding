@@ -2,7 +2,7 @@ import TomSelect from "tom-select";
 import "tom-select/dist/css/tom-select.css";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Multiselect = ({ updateForm }) => {
+export const Multiselect = ({ updateForm, handleKeyDown }) => {
   const selectRef = useRef(null);
   const [selectedTags, setSelectedTags] = useState([]);
 
@@ -29,5 +29,5 @@ export const Multiselect = ({ updateForm }) => {
     };
   }, [updateForm]);
 
-  return <input ref={selectRef} />;
+  return <input onKeyDown={handleKeyDown} ref={selectRef} />;
 };

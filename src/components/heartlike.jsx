@@ -5,11 +5,18 @@ import { useParams } from "react-router-dom";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-export const HeartLike = () => {
+export const HeartLike = ({ onDataFromLike }) => {
+  // bid logic to pass to parent
+  const [bid, setBid] = useState();
+
+  // Call the callback function to pass data to the parent
+  onDataFromLike(bid);
+
   const { lobbyid } = useParams();
   const [likedLobbies, setLikedLobbies] = useState([]);
   const [likedByUser, setLikedByUser] = useState([]);
   const [likes, setLikes] = useState();
+
   const [isClicked, setIsClicked] = useState();
   const [cookies] = useCookies(["user"], ["user_id"]);
 
@@ -69,6 +76,8 @@ export const HeartLike = () => {
         else return res.json();
       })
       .then((data) => {
+        console.log(data);
+        setBid(data[0].amount);
         setLikes(data[0].likes);
       })
       .catch((err) => {
@@ -138,6 +147,7 @@ export const HeartLike = () => {
   useEffect(() => {
     likeChecker();
     amountLikes();
+    console.log(bid);
   }, [likedLobbies]);
 
   if (isClicked) {
