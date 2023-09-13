@@ -5,12 +5,12 @@
     border-top-left-radius: 30px; 
     border-top-right-radius: 30px; 
     border: solid 1px #1c1a4f;
-    width: 34rem;
+    width: 35rem;
    
 
 }
 .item-info{
-    width: 34rem;
+    width: 35rem;
     border-radius:0;
     border-top: solid 15px #1c1a4f;
     border: solid 1px #1c1a4f;;
@@ -69,8 +69,9 @@ padding-right: 0;
 .chat{
     width: 34rem;
     font-size: 15px;
-    
     border-top : none;
+    overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 500px; /* Set a maximum height for the chat container */
     
 }
 
@@ -88,6 +89,7 @@ display:inline-block;
 }
 .bulle{
     margin: 0px 12px 0px 12px;
+    margin-bottom: 5px;
 }
 .username{
     font-weight: 600;
@@ -109,6 +111,7 @@ display:inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 18px;
+    overflow: scroll;
 }
 
 
@@ -130,4 +133,7 @@ display:inline-block;
     line-height: 0.85rem;
     font-size: 15px;
     font-weight: 200;
+}
+.rightside{
+    
 }

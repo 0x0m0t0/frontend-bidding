@@ -157,7 +157,7 @@ const Lobby = () => {
               >
                 <div className="displayed-lobby">
                   <img className="photo" src={item?.item?.cover_lobby} alt="" />
-                  <div className="rounded text-white bg-midnightblue item-info">
+                  <div className="text-white bg-midnightblue item-info">
                     <p className="item-name">{item?.item?.name}</p>
                     <p className="item-description p-3">
                       {item?.item?.description}
@@ -191,7 +191,7 @@ const Lobby = () => {
             <></>
           )}
         </section>
-        <section className="flex flex-col">
+        <section className="rightside flex flex-col">
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -244,7 +244,7 @@ const Lobby = () => {
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="bulle overflow-auto border border-black flex border rounded  m-2"
+                  className="bulle overflow-scroll mb-2 border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex conv">
