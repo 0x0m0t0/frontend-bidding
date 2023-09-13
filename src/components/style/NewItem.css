@@ -1,3 +1,5 @@
+/* Override React-datetime-picker styles */
+
 .react-datetime-picker {
   display: inline-flex;
   position: relative;
@@ -119,6 +121,8 @@
 .react-datetime-picker__clear-button {
   display: none;
 }
+
+/* Override TomSelect styles */
 
 .ts-wrapper {
   display: flex;
