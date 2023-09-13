@@ -3,11 +3,14 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 80px;
-  /* border: solid 1px #1c1a4f; */
 }
+
 .collection img{
-    margin: 0px 0px 0px 0px;
-    width: 243px auto;
+width: 256px;
+margin-left: 1px;
+margin-bottom: 7px;
+    
+   
     height: 190px auto ;
 }
 .collection2{

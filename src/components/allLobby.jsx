@@ -47,8 +47,8 @@ const AllLobby = () => {
         <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '300px', height: '255px' }}>
           <div className="border collection2 p-2">
             <p className="item">{item?.name}</p>
-            <div className="max-w-[243px] object-cover">
-              <img className="rounded " src={item?.cover_lobby} alt={item?.name} style={{ width: '243px' }}/>
+            <div className="object-cover">
+              <img className=" " src={item?.cover_lobby} alt={item?.name}/>
             </div>
             <p className="heart"> ♥ {item?.likes}</p>
             <Link to={`/lobby/${item?.id}`} className="underline">
