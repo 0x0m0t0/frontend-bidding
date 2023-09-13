@@ -31,8 +31,8 @@ export default function Nav() {
             href={item.href}
             className={classNames(
               item.current
-                ? "bg-mustard text-midnightblue border border-midnightblue"
-                : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue",
+                ? "text-midnightblue hover:bg-mustard hover:midnightblue hover:border border-midnightblue"
+                : "text-gray-300  text-midnightblue hover:bg-mustard hover:midnightblue hover:border border-midnightblue",
               "rounded-md px-3 py-2 mb-8 mr-1"
             )}
             aria-current={item.current ? "page" : undefined}

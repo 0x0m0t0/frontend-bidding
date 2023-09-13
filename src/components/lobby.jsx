@@ -157,7 +157,7 @@ const Lobby = () => {
               >
                 <div className="displayed-lobby">
                   <img className="photo" src={item?.item?.cover_lobby} alt="" />
-                  <div className="rounded text-white bg-midnightblue item-info">
+                  <div className="text-white bg-midnightblue item-info">
                     <p className="item-name">{item?.item?.name}</p>
                     <p className="item-description p-3">
                       {item?.item?.description}
@@ -176,7 +176,7 @@ const Lobby = () => {
                       alt="Avatar"
                     />
                     <div className="flex flex-col">
-                      <p className="mb-2 text-xl font-medium leading-tight">
+                      <p className="avatarname mb-2 text-xl font-medium leading-tight">
                         {item?.seller?.name}
                       </p>
                       {/* <p className="text-neutral-500 ml-6 pl-7 dark:text-neutral-400">
@@ -191,7 +191,7 @@ const Lobby = () => {
             <></>
           )}
         </section>
-        <section className="flex flex-col">
+        <section className="rightside flex flex-col">
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -209,12 +209,12 @@ const Lobby = () => {
                           <div className="likelogo">
                             <HeartLike onDataFromLike={handleDataFromLike} />
                           </div>
-                          <p className="text-sm">
+                          <p className="closesin text-sm">
                             <br /> Closes in {item?.lobby?.created_at}
                           </p>
                         </div>
 
-                        <div className="p-3">
+                        <div className="plusbtn p-3">
                           <PennyCounter
                             bidFromLike={bidFromLike}
                             lobbyId={lobbyid}
@@ -244,7 +244,7 @@ const Lobby = () => {
             {messages?.length > 0 ? (
               messages.map((item, i) => (
                 <div
-                  className="bulle overflow-auto border border-black flex border rounded  m-2"
+                  className="bulle overflow-scroll mb-2 border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
                   <div className="flex conv">
