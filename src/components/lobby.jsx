@@ -144,7 +144,7 @@ const Lobby = () => {
 
   return (
     <>
-      <article className="flex w-full h-3/5 max-h-screen">
+      <article className="flex justify-center w-full h-3/5 max-h-screen">
         <section className="h-full rounded-lg">
           {init?.length > 0 ? (
             init?.map((item, i) => (
@@ -205,7 +205,7 @@ const Lobby = () => {
                         <p className="closesin text-sm">
                           Closes in {item?.lobby?.created_at}
                         </p>
-                        <div className="p-4 like ">
+                        <div className="like ">
                           <LikeBid />
                         </div>
                       </div>
@@ -241,7 +241,7 @@ const Lobby = () => {
             {/* <AlwaysScrollToBottom /> */}
           </div>
           <form
-            className="form overflow-auto bg-mustard border border-black ml-16  "
+            className="form overflow-auto h-24 bg-mustard border border-black ml-16  "
             onSubmit={handleSubmit}
           >
             <label className="m-6"></label>
