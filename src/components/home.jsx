@@ -58,9 +58,9 @@ const Home = () => {
       <h2 className="flex flex-col slogan text-2xl pl-24">Where Bids Unite, Hives takes flight</h2> 
       </div>
     </div>
-    <hr />
   
-      <h2 className="text-4xl mb-10"> Trending now </h2>
+  
+      <h2 className="text-4xl mb-10 pt-16 "> Trending now </h2>
 
       <section className=" flex flex-wrap -mx-4">
 
