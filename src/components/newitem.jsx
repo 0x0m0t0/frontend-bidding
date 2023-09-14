@@ -16,7 +16,7 @@ const NewItem = () => {
   const [item, setItem] = useState({
     itemName: "",
     auctionStart: "",
-    auctionDuration: 1000000, // ms
+    auctionDuration: 60000, // ms
     itemDescription: "",
     coverLobby: "",
     tags: [],
