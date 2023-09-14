@@ -48,15 +48,19 @@ const Home = () => {
   return (
     <>
 
-    <div className="flex flex-col self-start g">
+    <div className="flex ">
       <img className="imglogo self-start" src={beehiveLogo} onClick={Hello} />
       {/* */}
-      <h2 className="flex justify-center h-60 w-60  pt-20 text-3xl">
-        Welcome to Bidhive
-      </h2>
+      <div>
+      <h1 className="flex ">
+        WELCOME TO BIDHIVE
+      </h1>
+      <h2 className="flex flex-col slogan ">Where Bids Unite, Hives takes flight</h2> 
+      </div>
     </div>
+    <hr />
   
-      <h1 className="text-4xl mb-10"> Trending now </h1>
+      <h2 className="text-4xl mb-10"> Trending now </h2>
 
       <section className=" flex flex-wrap -mx-4">
 

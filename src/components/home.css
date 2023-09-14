@@ -1,22 +1,61 @@
 .trending{
-    margin: 40px;
+    
+    justify-content: center;
+    
     
 }
 
 .trend-c{
-    border-radius: 30px;
+    border-radius: 30%;
     width: 240px;
-    height: 255px;
+    height: 287px;
+    background: rgba(255, 255, 255, 0.16);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.7px);
+-webkit-backdrop-filter: blur(6.7px);
 
 }
 
 .trend-c img{
-    width: 156px;
-    margin-left: 1px;
+
     margin-bottom: 7px;
+    margin-top: 7px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 82%;
+    border-radius: 30px;
+    
 }
 
 .item-trend-name{
-border-top: solid 20px white;
-background-color: aliceblue;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+
+}
+
+.imglogo{
+    height: 28rem;
+    margin-top: 3rem;
+}
+
+h1{
+line-height: 7.25rem;
+font-size: 6.875rem;
+padding-left: 7rem;
+padding-top: 8rem;
+
+}
+.slogan h2{
+    font-size: 25px;
+line-height: 5;
+font-weight: 365;
+padding-left: 111px;
+}
+
+hr{
+    padding: 30px;
 }
