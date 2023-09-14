@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { Navigate } from "react-router-dom";
 import user from "../utils/user_account";
+import { superBids } from "./winningbid";
+import { Stripy } from "./stripeRedirect";
 
 import { Logout } from "./logout";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -16,6 +18,7 @@ const Profile = () => {
   const [likedPosts, setLikedPosts] = useState([]);
   const [likedContent, setLikedContent] = useState("");
 
+  const [winner, setWinner] = useState([]);
   user({ endpoint, cookies, setUserInfo });
 
   const Biddings = () => {
@@ -44,7 +47,7 @@ const Profile = () => {
       .then((res) => res.json())
       .then((post) => {
         setAuctions(post);
-        console.log(post);
+        // console.log(post);
       })
       .catch((err) => {
         console.log(err.message);
@@ -60,7 +63,7 @@ const Profile = () => {
       .then((res) => res.json())
       .then((post) => {
         setLikedPosts(post);
-        console.log(post);
+        // console.log(post);
       })
       .catch((err) => {
         console.log(err.message);
@@ -103,6 +106,10 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
+    superBids(cookies, endpoint, setWinner);
+  }, [cookies, endpoint]);
+
+  useEffect(() => {
     likedData();
   }, [likedPosts]);
   useEffect(() => {
@@ -112,6 +119,39 @@ const Profile = () => {
   return (
     <div className="flex flex-col items-center">
       <Logout />
+      <div className="w-full min-h-10 bg-green-300">
+        <h1>
+          congratus ur a winner mister sister fuckyeah!!chicken dinner in
+          texas!!
+        </h1>
+
+        {winner.length > 0 ? (
+          winner.map((item) => (
+            <div>
+              <h2 key={item?.id + Date.now()} className="text-2xl m-4">
+                <span className="text-midnightblue">{item?.name}</span>
+                <span className="text-midnightblue">Status {item?.status}</span>
+              </h2>
+
+              <button
+                onClick={() =>
+                  Stripy(
+                    cookies,
+                    endpoint,
+                    item?.id_item,
+                    item?.bid_id,
+                    navigate
+                  )
+                }
+              >
+                Winner pay here!
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>Error fetching user account data</p>
+        )}
+      </div>
       <div className="flex justify-center w-full rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm md:flex-row md:space-x-4">
         {userInfo.length > 0 ? (
           <h2 key={userInfo[0]?.email} className="text-2xl m-4">
