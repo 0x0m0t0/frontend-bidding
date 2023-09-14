@@ -144,15 +144,15 @@ const Lobby = () => {
 
   return (
     <>
-      <article className="flex w-full h-3/5 max-h-screen">
-        <section className="h-full rounded-lg">
+      <article className="flex justify-center w-full h-3/5 max-h-screen">
+        <section className="h-full w-29rem h-42rem rounded-lg">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
                 className="flex rounded"
                 key={item?.lobby?.created_at + item?.id}
               >
-                <div className="displayed-lobby">
+                <div className=" displayed-lobby">
                   <img className="photo" src={item?.item?.cover_lobby} alt="" />
                   <div className="text-white bg-midnightblue item-info">
                     <p className="item-name">{item?.item?.name}</p>
@@ -188,7 +188,7 @@ const Lobby = () => {
             <></>
           )}
         </section>
-        <section className="rightside flex flex-col">
+        <section className="rightside flex flex-col w-29rem h-42rem">
           <div className="">
             {init?.length > 0 ? (
               init?.map((item, i) => (
@@ -205,7 +205,7 @@ const Lobby = () => {
                         <p className="closesin text-sm">
                           Closes in {item?.lobby?.created_at}
                         </p>
-                        <div className="p-4 like ">
+                        <div className="like ">
                           <LikeBid />
                         </div>
                       </div>
@@ -241,7 +241,7 @@ const Lobby = () => {
             {/* <AlwaysScrollToBottom /> */}
           </div>
           <form
-            className="form overflow-auto bg-mustard border border-black ml-16  "
+            className="form overflow-auto h-24 bg-mustard border border-black ml-16  "
             onSubmit={handleSubmit}
           >
             <label className="m-6"></label>
