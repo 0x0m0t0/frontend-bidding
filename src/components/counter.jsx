@@ -42,21 +42,18 @@ export const PennyCounter = (props) => {
   };
 
   const Increase = () => {
-    // console.log(initialBid);
-    // console.log(currentBitTotal);
     setCurrentBidTotal((currentBitTotal) => Number(currentBitTotal) + 1);
+
+    setTimeout(() => {
+      if (currentBitTotal != initialBid) {
+        fetchBidAmount();
+
+        setInitialBid(currentBitTotal);
+      }
+    }, 4000);
   };
 
-  useEffect(() => {
-    // console.log(initialBid);
-    console.log(currentBitTotal);
-    if (currentBitTotal != initialBid) {
-      fetchBidAmount();
-
-      setInitialBid(currentBitTotal);
-    }
-    // console.log(currentBitTotal);
-  }, [currentBitTotal]);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     setInitialBid(bidFromLike);
