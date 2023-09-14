@@ -2,7 +2,7 @@ import beehiveLogo from "./../assets/img/bidhive.png";
 import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import './navbar.css'
+import "./navbar.css";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -22,7 +22,7 @@ export default function Nav() {
     <>
       <div className="menu-nav flex items-start justify-between ">
         <Link to={`/`}>
-          <img className= "logo" src={beehiveLogo} />
+          <img className="logo bidhive-main-logo" src={beehiveLogo} />
         </Link>
 
         {navigation.map((item) => (
