@@ -55,7 +55,7 @@ const Home = () => {
       <h1 className="flex ">
         WELCOME TO BIDHIVE
       </h1>
-      <h2 className="flex flex-col slogan ">Where Bids Unite, Hives takes flight</h2> 
+      <h2 className="flex flex-col slogan text-2xl pl-24">Where Bids Unite, Hives takes flight</h2> 
       </div>
     </div>
     <hr />
