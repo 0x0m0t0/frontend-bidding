@@ -148,7 +148,7 @@ const Lobby = () => {
   return (
     <>
       <article className="flex w-full h-3/5 max-h-screen">
-        <section className="w-2/4 h-full rounded-lg">
+        <section className="h-full rounded-lg">
           {init?.length > 0 ? (
             init?.map((item, i) => (
               <div
@@ -239,7 +239,7 @@ const Lobby = () => {
             )}
           </div>
 
-          <div className="ref overflow ml-16 border border-black chat h-3/5 ">
+          <div className="ref overflow ml-16 border border-black h-64 chat">
             <h3 className="font-semibold">Chat</h3>
             {messages?.length > 0 ? (
               messages.map((item, i) => (
@@ -262,7 +262,7 @@ const Lobby = () => {
             {/* <AlwaysScrollToBottom /> */}
           </div>
           <form
-            className="form overflow-auto bg-mustard border border-black ml-16 h-24 chat"
+            className="form overflow-auto bg-mustard border border-black ml-16  "
             onSubmit={handleSubmit}
           >
             <label className="m-6"></label>
