@@ -48,8 +48,8 @@ const Home = () => {
   return (
     <>
 
-    <div className="flex flex-col self-center items-center">
-      <img className="imglogo h-60 w-60" src={beehiveLogo} onClick={Hello} />
+    <div className="flex flex-col self-start g">
+      <img className="imglogo self-start" src={beehiveLogo} onClick={Hello} />
       {/* */}
       <h2 className="flex justify-center h-60 w-60  pt-20 text-3xl">
         Welcome to Bidhive

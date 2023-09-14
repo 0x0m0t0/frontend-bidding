@@ -49,6 +49,7 @@
     width: 34rem;
     border-top-right-radius: 30px; 
     border-top-left-radius: 30px; 
+    margin-left: 103px;
     
 }
 .price-bidding h2 {
@@ -74,6 +75,7 @@ padding-right: 0;
     overflow-y: auto; /* Enable vertical scrolling */
     max-height: 500px; /* Set a maximum height for the chat container */
     border-bottom: white;
+    margin-left: 103px;
     
 }
 
@@ -138,4 +140,5 @@ display:inline-block;
 }
 .form{
     height: 96px;
+    margin-left: 103px;
 }
