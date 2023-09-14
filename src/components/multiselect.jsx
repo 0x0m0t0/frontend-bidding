@@ -2,9 +2,15 @@ import TomSelect from "tom-select";
 import "tom-select/dist/css/tom-select.css";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Multiselect = ({ updateForm, handleKeyDown }) => {
+export const Multiselect = ({ updateForm }) => {
   const selectRef = useRef(null);
   const [selectedTags, setSelectedTags] = useState([]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent Enter key from submitting the form
+    }
+  };
 
   useEffect(() => {
     const select = new TomSelect(selectRef.current, {
