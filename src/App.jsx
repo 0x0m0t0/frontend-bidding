@@ -14,13 +14,13 @@ import "./src/../index.css";
 import NoMatch from "./components/404";
 import Auth from "./components/authi";
 
-import Nav from "./components/NavBar/navbar.jsx";
-import Home from "./components/Home/home.jsx";
+import Nav from "./components/navbar.jsx";
+import Home from "./components/home.jsx";
 import Profile from "./components/profile";
 import Archive from "./components/archive";
-import NewItem from "./components/NewItem/newitem.jsx";
-import Lobby from "./components/Lobby/lobby.jsx";
-import AllLobby from "./components/AllLobby/allLobby.jsx";
+import NewItem from "./components/newitem.jsx";
+import Lobby from "./components/lobby.jsx";
+import AllLobby from "./components/allLobby.jsx";
 
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
