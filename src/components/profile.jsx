@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { Navigate } from "react-router-dom";
 import user from "../utils/user_account";
+
+import { Logout } from "./logout";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
-const Profile = ({ users }) => {
+const Profile = () => {
   const navigate = useNavigate();
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [userInfo, setUserInfo] = useState([]);
@@ -26,7 +28,6 @@ const Profile = ({ users }) => {
       .then((res) => res.json())
       .then((post) => {
         setBids(post);
-        console.log(post);
       })
       .catch((err) => {
         console.log(err.message);
@@ -110,6 +111,7 @@ const Profile = ({ users }) => {
 
   return (
     <div className="flex flex-col items-center">
+      <Logout />
       <div className="flex justify-center w-full rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm md:flex-row md:space-x-4">
         {userInfo.length > 0 ? (
           <h2 key={userInfo[0]?.email} className="text-2xl m-4">
@@ -208,7 +210,7 @@ const Profile = ({ users }) => {
                       <h2 className="mb-2 text-lg font-bold leading-none tracking-tight">
                         {item?.name}
                       </h2>
-                      <p className="text-sm">{item?.likes}</p>
+                      <p className="text-sm">{item?.likes} ♥</p>
                       <button
                         className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90"
                         onClick={() => navigate(`/lobby/${item?.id}`)}
