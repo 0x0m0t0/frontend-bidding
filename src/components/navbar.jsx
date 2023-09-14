@@ -1,5 +1,5 @@
 import beehiveLogo from "../../assets/img/bidhive.png";
-import { Avatar } from "../avatar";
+import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import './navbar.css'

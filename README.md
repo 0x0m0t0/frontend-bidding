@@ -1,14 +1,12 @@
-## Bidhive: React Bidding Platform
+## Bidhive: React Bidding Platform v.001
+
 A `Penny Auction Bidding` Platform
 
 ### Link
+
 https://platform.oxomoto.co/
 
-### Todo
-- [ ] React Routes
-- [ ] React Components
-
-
 ### Tools
+
 - React
 - Tailwind

@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 import path from "path";
 export default defineConfig({
+  root: ".",
   plugins: [react()],
 
   esbuild: {
@@ -46,5 +47,5 @@ export default defineConfig({
     alias: [{ find: "@", replacement: "/src" }],
   },
 
-  base: "./",
+  base: "/",
 });

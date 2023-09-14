@@ -1,10 +1,19 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
+<<<<<<< HEAD:src/components/Lobby/lobby.jsx
 import { HeartLike } from "../heartlike.jsx";
 import { PennyCounter } from "../counter.jsx";
 
 import { CleanTime } from "../cleanTime.jsx";
+=======
+
+import { PennyCounter } from "./counter";
+
+import { LikeBid } from "./bid_like/LikeBid.jsx";
+
+import { CleanTime } from "./cleanTime";
+>>>>>>> main:src/components/lobby.jsx
 import "./lobby.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 
@@ -17,7 +26,6 @@ const Lobby = () => {
   const [messages, setMessages] = useState([]);
 
   // bids
-
   const [bidFromLike, setBidFromLike] = useState(null);
   const handleDataFromLike = (data) => {
     setBidFromLike(data);
@@ -128,13 +136,11 @@ const Lobby = () => {
   let pick = "2023-09-11T14:32:00.000Z";
   useEffect(() => {
     // lobbyData();
-
     lobbyInit();
   }, []);
 
   useEffect(() => {
     chatData();
-    console.log(bidFromLike);
   }, [check]);
 
   // setInterval(chatData(), 2000);
@@ -204,30 +210,12 @@ const Lobby = () => {
                       <div>
                         <h2 className="text-3xl">{item?.item?.name}</h2>
                       </div>
-                      <div className="flex">
+                      <div className="flex flex-col">
+                        <p className="closesin text-sm">
+                          Closes in {item?.lobby?.created_at}
+                        </p>
                         <div className="p-4 like ">
-                          <div className="likelogo">
-                            <HeartLike onDataFromLike={handleDataFromLike} />
-                          </div>
-                          <p className="closesin text-sm">
-                            <br /> Closes in {item?.lobby?.created_at}
-                          </p>
-                        </div>
-
-                        <div className="plusbtn p-3">
-                          <PennyCounter
-                            bidFromLike={bidFromLike}
-                            lobbyId={lobbyid}
-                          />
-                        </div>
-                        <div className="p-3 current-bid">
-                          <p className="cb ">Current Bid</p>
-
-                          {bidFromLike === null ? (
-                            <p className="text-2xl">0 €</p>
-                          ) : (
-                            <p className="text-2xl">{bidFromLike} €</p>
-                          )}
+                          <LikeBid />
                         </div>
                       </div>
                     </div>

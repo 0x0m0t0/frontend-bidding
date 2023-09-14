@@ -3,7 +3,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import DateTimePicker from "react-datetime-picker";
 import "react-calendar/dist/Calendar.css";
 import "./NewItem.css";
-import { Multiselect } from "../multiselect";
+import { Multiselect } from "./multiselect";
 
 import { useNavigate } from "react-router-dom";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -167,7 +167,7 @@ const NewItem = () => {
           </div>
           <div className="w-full max-w-md mx-auto flex pb-2">
             <label className="w-60 max-w-xs self-center"> Tags </label>
-            <Multiselect onKeyDown={handleKeyDown} />
+            <Multiselect />
             {/* <input
               onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
