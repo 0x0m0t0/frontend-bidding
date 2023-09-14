@@ -1,11 +1,11 @@
-import beehiveLogo from "../../assets/img/beehive.png";
+import beehiveLogo from "./../assets/img/beehive.png";
 
 import { useState, useEffect } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import "./home.css";
-import { HeartLike } from "../heartlike.jsx";
+import { HeartLike } from "./heartlike.jsx";
 
 
 const Hello = () => {
