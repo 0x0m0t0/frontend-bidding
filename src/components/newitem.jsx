@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import DateTimePicker from "react-datetime-picker";
 import "react-calendar/dist/Calendar.css";
-import "@/components/style/NewItem.css";
+import "./NewItem.css";
 import { Multiselect } from "./multiselect";
 
 import { useNavigate } from "react-router-dom";

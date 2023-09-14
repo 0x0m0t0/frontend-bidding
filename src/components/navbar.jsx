@@ -1,4 +1,4 @@
-import beehiveLogo from "./../assets/img/bidhive.png";
+import beehiveLogo from "../../assets/img/bidhive.png";
 import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";

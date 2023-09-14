@@ -1,0 +1,22 @@
+.trending{
+    margin: 40px;
+    
+}
+
+.trend-c{
+    border-radius: 30px;
+    width: 240px;
+    height: 255px;
+
+}
+
+.trend-c img{
+    width: 156px;
+    margin-left: 1px;
+    margin-bottom: 7px;
+}
+
+.item-trend-name{
+border-top: solid 20px white;
+background-color: aliceblue;
+}

@@ -49,6 +49,7 @@
     width: 34rem;
     border-top-right-radius: 30px; 
     border-top-left-radius: 30px; 
+    margin-left: 103px;
     
 }
 .price-bidding h2 {
@@ -68,10 +69,13 @@ padding-right: 0;
 }
 .chat{
     width: 34rem;
+    height:26.2rem;
     font-size: 15px;
     border-top : none;
     overflow-y: auto; /* Enable vertical scrolling */
-  max-height: 500px; /* Set a maximum height for the chat container */
+    max-height: 500px; /* Set a maximum height for the chat container */
+    border-bottom: white;
+    margin-left: 103px;
     
 }
 
@@ -134,6 +138,7 @@ display:inline-block;
     font-size: 15px;
     font-weight: 200;
 }
-.rightside{
-    
+.form{
+    height: 96px;
+    margin-left: 103px;
 }
