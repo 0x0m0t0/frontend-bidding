@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { HeartLike } from "./heartlike.jsx";
-import { PennyCounter } from "./counter";
+import { HeartLike } from "../heartlike.jsx";
+import { PennyCounter } from "../counter.jsx";
 
-import { CleanTime } from "./cleanTime";
+import { CleanTime } from "../cleanTime.jsx";
 import "./lobby.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 

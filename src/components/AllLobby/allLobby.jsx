@@ -1,26 +1,18 @@
-import beehiveLogo from "./../assets/img/beehive.png";
-
 import { useState, useEffect } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import "./allLobby.css";
-import { HeartLike } from "./heartlike.jsx";
+import { HeartLike } from "../heartlike.jsx";
 
 
-const Hello = () => {
-  return alert("Hello Welcome to Bidhive");
-};
-
-const Home = () => {
-
-
+const AllLobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [lobbies, setLobbies] = useState();
   const [lob, setLob] = useState([]);
 
   const lobbiesData = () => {
-    fetch(`${endpoint}/allLobby/tendance/0`, {
+    fetch(`${endpoint}/allLobby/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -47,15 +39,6 @@ const Home = () => {
 
   return (
     <>
-
-    <div className="flex flex-col self-center items-center">
-      <img className="h-60 w-60" src={beehiveLogo} onClick={Hello} />
-      {/* */}
-      <h2 className="flex justify-center h-60 w-60  pt-20 text-3xl">
-        Welcome to Bidhive
-      </h2>
-    </div>
-  
       <h1 className="text-4xl mb-10"> All the lobbies</h1>
 
       <section className=" flex flex-wrap -mx-4">
@@ -87,7 +70,4 @@ const Home = () => {
   );
 };
 
-export default Home;
-
-
-
+export default AllLobby;
