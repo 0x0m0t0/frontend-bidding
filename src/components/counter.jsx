@@ -9,6 +9,7 @@ export const PennyCounter = (props) => {
   // bids
 
   const [initialBid, setInitialBid] = useState(0);
+  const [check, setCheck] = useState(0);
   const [currentBitTotal, setCurrentBidTotal] = useState();
 
   const [cookies] = useCookies(["user"], ["user_id"]);
@@ -42,29 +43,30 @@ export const PennyCounter = (props) => {
   };
 
   const Increase = () => {
-    // console.log(initialBid);
-    // console.log(currentBitTotal);
     setCurrentBidTotal((currentBitTotal) => Number(currentBitTotal) + 1);
+    // check to trigger useEffect below
+    setCheck(1);
   };
 
   useEffect(() => {
-    // console.log(initialBid);
     console.log(currentBitTotal);
-    if (currentBitTotal != initialBid) {
-      fetchBidAmount();
-
-      setInitialBid(currentBitTotal);
+    if (cookies.user) {
+      if (currentBitTotal != initialBid) {
+        fetchBidAmount();
+        setInitialBid(currentBitTotal);
+      }
     }
-    // console.log(currentBitTotal);
-  }, [currentBitTotal]);
+  }, [check]);
 
   useEffect(() => {
     setInitialBid(bidFromLike);
   }, [bidFromLike]);
 
   useEffect(() => {
-    if (initialBid != 0) {
-      setCurrentBidTotal(initialBid);
+    if (cookies.user) {
+      if (initialBid != 0) {
+        setCurrentBidTotal(initialBid);
+      }
     }
   }, [initialBid]);
 

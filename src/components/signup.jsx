@@ -65,7 +65,7 @@ const Signup = (props) => {
       />
 
       <label className="block text-sm font-medium leading-6 text-gray-900">
-        Username{" "}
+        Username
       </label>
       <input
         type="text"
@@ -80,7 +80,7 @@ const Signup = (props) => {
       />
 
       <label className="block text-sm font-medium leading-6 text-gray-900">
-        Avatar{" "}
+        Avatar
       </label>
       <input
         type="text"
@@ -110,7 +110,7 @@ const Signup = (props) => {
       />
 
       <label className="block text-sm font-medium leading-6 text-gray-900">
-        Password{" "}
+        Password
       </label>
       <input
         type="password"
