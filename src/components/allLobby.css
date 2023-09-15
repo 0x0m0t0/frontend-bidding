@@ -44,20 +44,12 @@ margin-right: 30px;
   margin-top: 3rem;
 }
 
-h1{
-line-height: 7.25rem;
-font-size: 6.875rem;
-padding-left: 7rem;
-padding-top: 8rem;
+h1.c-b {
+font-size: 3rem;
+padding: 3rem;
+padding-left:0;
+text-align: center ;
+
 
 }
-/* h2 .slogan {
-font-size: 25px;
-line-height: 5;
-font-weight: 365;
-padding-left: 111px;
-} */
 
-hr{
-  padding: 30px;
-}
