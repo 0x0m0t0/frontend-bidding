@@ -16,7 +16,7 @@ const NewItem = () => {
   const [item, setItem] = useState({
     itemName: "",
     auctionStart: "",
-    auctionDuration: 6000000, // ms
+    auctionDuration: "", // ms
     itemDescription: "",
     coverLobby: "",
     tags: [],
@@ -183,17 +183,20 @@ const NewItem = () => {
           </div>
 
           <div className="w-full max-w-md mx-auto flex pb-4">
-            <label className="w-60 max-w-xs self-center "> Pictures </label>
+            <label className="w-60 max-w-xs self-center ">
+              {" "}
+              Auction Duration in ms{" "}
+            </label>
             <input
               onKeyDown={handleKeyDown}
               className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Auction Images"
-              type="url"
-              name="pictures"
-              value={item.pictures}
+              type="number"
+              name="auctionDuration"
+              value={item.auctionDuration}
               onChange={(e) => {
                 e.preventDefault();
-                updateForm("pictures", e);
+                updateForm("auctionDuration", e);
               }}
             />
           </div>
