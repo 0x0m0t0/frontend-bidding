@@ -31,7 +31,7 @@ export default function Nav() {
             href={item.href}
             className={classNames(
               item.current
-                ? "text-midnightblue hover:midnightblue hover:border border-midnightblue"
+                ? "text-midnightblue p-4 hover:midnightblue hover:border border-midnightblue"
                 : "text-gray-300  text-midnightblue hover:midnightblue hover:border border-midnightblue",
               "rounded-md px-3 py-2 mb-8 mr-1"
             )}
