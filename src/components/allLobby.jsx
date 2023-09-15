@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import "./home.css";
+import "./allLobby.css";
 import { HeartLike } from "./heartlike.jsx";
 
 
