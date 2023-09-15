@@ -8,6 +8,9 @@
   padding: 2rem;
   text-align: center;
 }
+.left {
+  text-align: left;
+}
 
 body {
   background: #f9f9f9;

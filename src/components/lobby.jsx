@@ -226,11 +226,20 @@ const Lobby = () => {
                   className="bulle overflow-scroll mb-2 border border-black flex border rounded  m-2"
                   key={item?.created_at + i}
                 >
-                  <div className="flex conv">
-                    <h2 className="username">{item?.username}: </h2>
-                    <p className="msg">{item?.message}</p>
-
-                    <p className="time">{item?.created_at}</p>
+                  <div className="flex left">
+                    <div>
+                      <img
+                        src={item?.avatar}
+                        className="w-16 h-16 p-2 rounded-full"
+                      />
+                    </div>
+                    <div className="pl-2">
+                      <h2 className="font-semibold">{item?.username}: </h2>
+                      <p className="">{item?.message}</p>
+                      <p className=" font-extralight text-sm">
+                        {item?.created_at}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))
