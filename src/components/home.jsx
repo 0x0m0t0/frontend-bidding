@@ -62,7 +62,7 @@ const Home = () => {
   
       <h2 className="t-n"> TRENDING NOW </h2>
 
-      <section className=" flex flex-wrap -mx-4">
+      <section className=" justify-center flex flex-wrap -mx-4">
 
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
