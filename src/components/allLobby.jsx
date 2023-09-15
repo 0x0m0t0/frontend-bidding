@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
 import { Cookies, useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import "./allLobby.css";
+import "./home.css";
 import { HeartLike } from "./heartlike.jsx";
 
 
@@ -46,18 +46,18 @@ const AllLobby = () => {
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
-        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '300px', height: '255px' }}>
-          <div className="border collection2 p-2">
-            <p className="item">{item?.name}</p>
-            <div className="object-cover">
-              <img className=" " src={item?.cover_lobby} alt={item?.name}/>
-            </div>
-            <p className="heart"> ♥ {item?.likes}</p>
-            <Link to={`/lobby/${item?.id}`} className="underline">
-              Lobby {item?.id}
-            </Link>
+        <div key={item?.id + item?.created_at} className="p-3 trending">
+        <div className="border trend-c p-2">
+          <p className="item-trend-name">{item?.name}</p>
+          <div className="object-cover">
+            <img className=" " src={item?.cover_lobby} alt={item?.name}/>
           </div>
+          <p className="heart"> ♥ {item?.likes}</p>
+          <Link to={`/lobby/${item?.id}`} className="underline">
+            Lobby {item?.id}
+          </Link>
         </div>
+      </div>
       );
     })
   ) : (
