@@ -6,6 +6,7 @@
 }
 
 .trend-c{
+    justify-content: center;
     border-radius: 30%;
     width: 240px;
     height: 287px;
@@ -50,13 +51,21 @@ padding-left: 7rem;
 padding-top: 8rem;
 
 }
-/* h2 .slogan {
+ h2.slogan {
 font-size: 25px;
 line-height: 5;
 font-weight: 365;
 padding-left: 111px;
-} */
 
-hr{
-    padding: 30px;
+} 
+
+
+.t-n{
+color: #f5d63b;
+background-color: #1c1a4f;
+margin-top: 5rem;
+margin-bottom: 3rem;
+padding: 0.55rem;
+font-size: 1.4rem;
+font-weight: 500;
 }

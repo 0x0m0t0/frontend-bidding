@@ -39,25 +39,25 @@ const AllLobby = () => {
 
   return (
     <>
-      <h1 className="text-4xl mb-10"> All the lobbies</h1>
+      <h1 className="c-b"> Current biddings </h1>
 
-      <section className=" flex flex-wrap -mx-4">
+      <section className=" justify-center flex flex-wrap content-center.">
 
   {lobbies?.length > 0 ? (
     lobbies?.map((item, i) => {
       return (
-        <div key={item?.id + item?.created_at} className="p-3 collection" style={{ width: '300px', height: '255px' }}>
-          <div className="border collection2 p-2">
-            <p className="item">{item?.name}</p>
-            <div className="object-cover">
-              <img className=" " src={item?.cover_lobby} alt={item?.name}/>
-            </div>
-            <p className="heart"> ♥ {item?.likes}</p>
-            <Link to={`/lobby/${item?.id}`} className="underline">
-              Lobby {item?.id}
-            </Link>
+        <div key={item?.id + item?.created_at} className="p-3 trending">
+        <div className="border trend-c p-2">
+          <p className="item-trend-name">{item?.name}</p>
+          <div className="object-cover">
+            <img className=" " src={item?.cover_lobby} alt={item?.name}/>
           </div>
+          <p className="heart"> ♥ {item?.likes}</p>
+          <Link to={`/lobby/${item?.id}`} className="underline">
+            Lobby {item?.id}
+          </Link>
         </div>
+      </div>
       );
     })
   ) : (
