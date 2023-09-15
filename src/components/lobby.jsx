@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 import { LikeBid } from "./bid_like/LikeBid.jsx";
-
+import { countdown } from "./countdown.jsx";
 import { CleanTime } from "./cleanTime";
 import "./lobby.css";
 const endpoint = import.meta.env.VITE_REACT_APP_ENDPOINT;
@@ -15,7 +15,8 @@ const Lobby = () => {
   const [data, setData] = useState([]);
   const [init, setInit] = useState([]);
   const [messages, setMessages] = useState([]);
-
+  const [endDate, setEndDate] = useState([]);
+  const [endClosing, setEndClosing] = useState("");
   // bids
   const [bidFromLike, setBidFromLike] = useState(null);
   const handleDataFromLike = (data) => {
@@ -52,6 +53,10 @@ const Lobby = () => {
       .then((data) => {
         console.log(data);
         setInit([data]);
+        setEndDate({
+          end_at: data.lobby.end_at,
+          created_at: data.lobby.created_at,
+        });
       })
       .catch((err) => {
         return err;
@@ -73,7 +78,7 @@ const Lobby = () => {
       })
       .then((data) => {
         setData(data);
-        // console.log(data);
+        console.log(data);
       })
       .catch((err) => {
         return err;
@@ -124,7 +129,6 @@ const Lobby = () => {
       alert("Not allowed, please login");
     }
   };
-  let pick = "2023-09-11T14:32:00.000Z";
   useEffect(() => {
     // lobbyData();
     lobbyInit();
@@ -136,6 +140,11 @@ const Lobby = () => {
 
   // setInterval(chatData(), 2000);
 
+  if (endDate.end_at !== undefined) {
+    setInterval(() => {
+      countdown(endDate?.created_at, endDate?.end_at, setEndClosing);
+    }, 2000);
+  }
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
     useEffect(() => elementRef.current.scrollIntoView());
@@ -203,7 +212,7 @@ const Lobby = () => {
                       </div>
                       <div className="flex flex-col">
                         <p className="closesin text-sm">
-                          Closes in {item?.lobby?.created_at}
+                          Closes in {endClosing}
                         </p>
                         <div className="like ">
                           <LikeBid />

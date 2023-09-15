@@ -21,6 +21,27 @@ const Profile = () => {
   const [winner, setWinner] = useState([]);
   user({ endpoint, cookies, setUserInfo });
 
+  // const countdown = () => {
+  //   const isoDateTime = "2023-09-15T16:08:15.354Z";
+  //   const dateObject = dayjs(isoDateTime);
+  //   const currentTime = dayjs();
+
+  //   const duration = dayjs.duration(dayjs().diff(dateObject));
+
+  //   const days = Math.abs(duration.days());
+  //   const hours = Math.abs(duration.hours());
+  //   const minutes = Math.abs(duration.minutes());
+  //   const seconds = Math.abs(duration.seconds());
+
+  //   const formattedDuration = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+  //   console.log("Difference in a human-readable format:", formattedDuration);
+  // };
+
+  // setInterval(() => {
+  //   countdown();
+  // }, 2000);
+
   const Biddings = () => {
     fetch(`${endpoint}/my_bidding/${cookies.user_id}`, {
       method: "GET",

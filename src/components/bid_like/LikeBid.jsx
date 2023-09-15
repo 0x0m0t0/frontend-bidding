@@ -47,28 +47,28 @@ export const LikeBid = () => {
   useEffect(() => {
     likeChecker(likedLobbies, lobbyid, setIsClicked);
     amountLikes(lobbyid, endpoint, cookies, setBid, setLikes);
-    console.log(bid);
+    // console.log(bid);
   }, [likedLobbies]);
 
   useEffect(() => {
     setInterval(() => {
-      console.log("refresh"),
-        amountLikes(lobbyid, endpoint, cookies, setBid, setLikes);
+      // console.log("refresh"),
+      amountLikes(lobbyid, endpoint, cookies, setBid, setLikes);
     }, 1000);
   }, []);
 
   // bidding
 
   const Increase = () => {
-    console.log(initialBid);
-    console.log(currentBitTotal);
+    // console.log(initialBid);
+    // console.log(currentBitTotal);
     setCurrentBidTotal((currentBitTotal) => Number(currentBitTotal) + 1);
     amountLikes(lobbyid, endpoint, cookies, setBid, setLikes);
     // check to trigger useEffect below
   };
 
   useEffect(() => {
-    console.log(currentBitTotal);
+    // console.log(currentBitTotal);
     if (cookies.user) {
       if (currentBitTotal != bid) {
         fetchBidAmount(endpoint, lobbyid, cookies, currentBitTotal);

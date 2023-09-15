@@ -12,7 +12,6 @@ export const amountLikes = (lobbyid, endpoint, cookies, setBid, setLikes) => {
       else return res.json();
     })
     .then((data) => {
-      console.log(data);
       setBid(data[0].amount);
       setLikes(data[0].likes);
     })
