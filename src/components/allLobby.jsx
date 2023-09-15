@@ -39,7 +39,7 @@ const AllLobby = () => {
 
   return (
     <>
-      <h1 className="c-b"> Current biddings </h1>
+      <h1 className="c-b"> Current Biddings </h1>
 
       <section className=" justify-center flex flex-wrap content-center.">
 

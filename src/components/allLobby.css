@@ -2,23 +2,30 @@
     
   justify-content: center;
   
-  
+  transition: transform 0.3s; 
+}
+
+.trending:hover {
+  transform: scale(1.2);
 }
 
 .trend-c{
   
   justify-content: center;
   border-radius: 30%;
-  width: 240px;
+  width: 287px;
   height: 287px;
   background: rgba(255, 255, 255, 0.16);
 
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(22, 19, 115, 0.19);
 backdrop-filter: blur(6.7px);
 -webkit-backdrop-filter: blur(6.7px);
 margin-right: 30px;
+margin-bottom: 1.5rem;
 
 }
+
+
 
 
 .trend-c img{
@@ -28,12 +35,13 @@ margin-right: 30px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 82%;
+  width: 75%;
   border-radius: 30px;
   
 }
 
 .item-trend-name{
+  font-size: 18px;
   font-weight: 500;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -57,4 +65,6 @@ text-align: center ;
 
 .c-b{
   font-weight: 500;
+  padding-top: 1rem;
+  color: #011f3f;
 }
