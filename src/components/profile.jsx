@@ -185,7 +185,7 @@ const Profile = () => {
       </div>
       <article className="flex justify-center w-full rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm md:flex-row md:space-x-4">
         <section className="flex-1 p-3">
-          <h3 className="font-semibold">Bids</h3>
+          <h3 className="font-semibold">My Bids</h3>
           {bids?.length > 0 ? (
             bids.map((item) => (
               <div key={item?.bid_information?.id}>
@@ -209,7 +209,7 @@ const Profile = () => {
         </section>
 
         <section className="flex-1 p-3">
-          <h3 className="font-semibold ">Auctions</h3>
+          <h3 className="font-semibold ">My Auctions</h3>
           <div className="">
             {auctions?.length > 0 ? (
               auctions.map((item) => (
