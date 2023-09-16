@@ -141,10 +141,7 @@ const Profile = () => {
     <div className="flex flex-col items-center">
       <Logout />
       <div className="w-full min-h-10 bg-green-300">
-        <h1>
-          congratus ur a winner mister sister fuckyeah!!chicken dinner in
-          texas!!
-        </h1>
+        <h1 className="text-2xl">Winning bids</h1>
 
         {winner.length > 0 ? (
           winner.map((item) => (
