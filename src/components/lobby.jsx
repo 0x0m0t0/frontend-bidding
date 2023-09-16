@@ -169,7 +169,6 @@ const Lobby = () => {
                       {item?.item?.description}
                     </p>
 
-                    <p className="status p-3">Status: {item?.item?.status}</p>
                     <p className="posted-on p-3">
                       <CleanTime created={item?.lobby?.created_at} />
                     </p>

@@ -140,18 +140,14 @@ const Profile = () => {
   return (
     <div className="flex flex-col items-center">
       <Logout />
-      <div className="w-full min-h-10 bg-green-300">
-        <h1>
-          congratus ur a winner mister sister fuckyeah!!chicken dinner in
-          texas!!
-        </h1>
+      <div className="w-full min-h-10 bg-green-300 mb-2 rounded-lg">
+        <h1 className="text-2xl p-2">Winning bids</h1>
 
         {winner.length > 0 ? (
           winner.map((item) => (
-            <div>
+            <div className="flex">
               <h2 key={item?.id + Date.now()} className="text-2xl m-4">
                 <span className="text-midnightblue">{item?.name}</span>
-                <span className="text-midnightblue">Status {item?.status}</span>
               </h2>
 
               <button
@@ -185,7 +181,7 @@ const Profile = () => {
       </div>
       <article className="flex justify-center w-full rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm md:flex-row md:space-x-4">
         <section className="flex-1 p-3">
-          <h3 className="font-semibold">Bids</h3>
+          <h3 className="font-semibold">My Bids</h3>
           {bids?.length > 0 ? (
             bids.map((item) => (
               <div key={item?.bid_information?.id}>
@@ -209,7 +205,7 @@ const Profile = () => {
         </section>
 
         <section className="flex-1 p-3">
-          <h3 className="font-semibold ">Auctions</h3>
+          <h3 className="font-semibold ">My Auctions</h3>
           <div className="">
             {auctions?.length > 0 ? (
               auctions.map((item) => (
