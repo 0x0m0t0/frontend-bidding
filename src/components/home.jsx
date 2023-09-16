@@ -71,10 +71,12 @@ const Home = () => {
                       alt={item?.name}
                     />
                   </div>
-                  <p className="heart"> ♥ {item?.likes}</p>
-                  <Link to={`/lobby/${item?.id}`} className="underline">
-                    Lobby {item?.id}
-                  </Link>
+                  <div className="flex justify-center">
+                    <p className="heart mr-2"> ♥ {item?.likes}</p>
+                    <Link to={`/lobby/${item?.id}`} className="underline">
+                      Lobby {item?.id}
+                    </Link>
+                  </div>
                 </div>
               </div>
             );

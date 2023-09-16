@@ -140,12 +140,12 @@ const Profile = () => {
   return (
     <div className="flex flex-col items-center">
       <Logout />
-      <div className="w-full min-h-10 bg-green-300">
-        <h1 className="text-2xl">Winning bids</h1>
+      <div className="w-full min-h-10 bg-green-300 mb-2 rounded-lg">
+        <h1 className="text-2xl p-2">Winning bids</h1>
 
         {winner.length > 0 ? (
           winner.map((item) => (
-            <div>
+            <div className="flex">
               <h2 key={item?.id + Date.now()} className="text-2xl m-4">
                 <span className="text-midnightblue">{item?.name}</span>
               </h2>
