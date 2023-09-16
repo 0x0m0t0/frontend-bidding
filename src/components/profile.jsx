@@ -148,7 +148,6 @@ const Profile = () => {
             <div>
               <h2 key={item?.id + Date.now()} className="text-2xl m-4">
                 <span className="text-midnightblue">{item?.name}</span>
-                <span className="text-midnightblue">Status {item?.status}</span>
               </h2>
 
               <button
