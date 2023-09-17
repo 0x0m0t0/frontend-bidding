@@ -6,7 +6,7 @@
 }
 
 .trending:hover {
-  transform: scale(1.1);
+  transform: scale(1.);
 }
 
 .trend-c{
@@ -55,16 +55,19 @@ margin-bottom: 1.5rem;
 }
 
 h1.c-b {
-font-size: 3rem;
-padding: 3rem;
-padding-left:0;
+font-size: 2.5rem;
+margin-bottom: 3rem;
 text-align: center ;
-
+color: #f5d63b;
+background-color: #1c1a4f;
+padding: 0;
+font-weight: 500;
+line-height: 3.25rem;
+margin-bottom: 5rem;
+margin-top: 2rem;
+padding: 0.3rem;
 
 }
 
-.c-b{
-  font-weight: 500;
-  padding-top: 1rem;
-  color: #011f3f;
-}
+
+
