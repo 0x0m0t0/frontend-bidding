@@ -5,7 +5,7 @@
 }
 
 .trending:hover {
-  transform: scale(1.);
+  transform: scale(1.1);
 }
 
 .trend-c {
@@ -60,4 +60,8 @@ padding: 0.3rem;
 }
 
 
+.c-b {
+  font-weight: 500;
+  color: #011f3f;
+}
 
