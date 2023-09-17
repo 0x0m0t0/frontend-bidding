@@ -1,146 +1,122 @@
-.likelogo{
-    width: 50px;
+.likelogo {
+  width: 50px;
 }
 .photo {
-    border-top-left-radius: 30px; 
-    border-top-right-radius: 30px; 
-    border: solid 1px #1c1a4f;
-    width: 35rem;
-   
-
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border: solid 1px #1c1a4f;
+  width: 35rem;
 }
-.item-info{
-    width: 35rem;
-    border-radius:0;
-    border-top: solid 15px #1c1a4f;
-    border: solid 1px #1c1a4f;;
+.item-info {
+  width: 35rem;
+  border-radius: 0;
+  border-top: solid 15px #1c1a4f;
+  border: solid 1px #1c1a4f;
 }
-.item-name{
-    font-weight: 600;
-    border-top: solid 15px #1c1a4f;
-    padding: 9px;
-
+.item-name {
+  font-weight: 600;
+  border-top: solid 15px #1c1a4f;
+  padding: 9px;
 }
-.item-description{
-    font-weight: 500;
-    padding:9px
-
+.item-description {
+  font-weight: 500;
+  padding: 9px;
 }
-.posted-on{
-    font-weight: 100;
+.posted-on {
+  font-weight: 100;
   padding: 9px;
   border-bottom: solid 15px #1c1a4f;
-
 }
-.status{
-font-weight: 300;
-padding: 9px;
-
+.status {
+  font-weight: 300;
+  padding: 9px;
 }
 
-.avatar{
-   
-    border: solid 1px #1c1a4f;
-
-
-
+.avatar {
+  border: solid 1px #1c1a4f;
 }
 
-.price-bidding{
-    width: 35rem;
-    border-top-right-radius: 30px; 
-    border-top-left-radius: 30px; 
-  
-    
+.price-bidding {
+  width: 35rem;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
 }
 .price-bidding h2 {
-    margin-top: 20px;
-    font-weight: 700;
+  margin-top: 20px;
+  font-weight: 700;
 }
 
-.current-bid{
-    margin-left: 27px;
-    padding-left: 0;
-padding-right: 0;
+.current-bid {
+  margin-left: 27px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.cb{
-    margin-top: 12px;
-    
+.cb {
+  margin-top: 12px;
 }
-.chat{
-    width: 35rem;
-    height:26.2rem;
-    font-size: 15px;
-    border-top : none;
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 500px; /* Set a maximum height for the chat container */
-    border-bottom: white;
-
-    
+.chat {
+  width: 35rem;
+  height: 26.2rem;
+  font-size: 15px;
+  border-top: none;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 500px; /* Set a maximum height for the chat container */
+  border-bottom: white;
 }
 
-.conv{
-padding: 7px;
-display:inline-block;
-
+.conv {
+  padding: 7px;
+  display: inline-block;
 }
-.msg{
-    margin-left: 13px;
 
-}
 .time {
-    font-weight: 100;
+  font-weight: 100;
 }
-.bulle{
-    margin: 0px 12px 0px 12px;
-    margin-bottom: 5px;
+.bulle {
+  margin: 0px 12px 0px 12px;
+  margin-bottom: 5px;
 }
-.username{
-    font-weight: 600;
-}
-
-.bottom{
-    float: right;
-    align-self: flex-end;
-
+.username {
+  font-weight: 600;
 }
 
-.like{
-    margin: 10px;
-    margin-left: 30px;
-
+.bottom {
+  float: right;
+  align-self: flex-end;
 }
 
-.chat h3{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    overflow: scroll;
+.like {
+  margin: 10px;
+  margin-left: 30px;
 }
 
+.chat h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  overflow: scroll;
+}
 
-.submitbtn{
-    margin-bottom: 20px;
-    padding-top: 12px;
+.submitbtn {
+  margin-bottom: 20px;
+  padding-top: 12px;
   padding-bottom: 34px;
 }
 
 .avatarname {
-    margin-left: 31px;
+  margin-left: 31px;
 }
 
-.plusbtn{
-    margin-top: 13px;
+.plusbtn {
+  margin-top: 13px;
 }
 
-.closesin{
-    line-height: 0.85rem;
-    font-size: 15px;
-    font-weight: 200;
+.closesin {
+  line-height: 0.85rem;
+  font-size: 15px;
+  font-weight: 200;
 }
-.form{
-    height: 96px;
-    
+.form {
+  height: 96px;
 }
-

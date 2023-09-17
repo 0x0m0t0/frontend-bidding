@@ -8,7 +8,7 @@ const Archive = () => {
 
   const fetchDummyData = async () => {
     try {
-      const response = await fetch(endpoint + "/historic/1");
+      const response = await fetch(endpoint + "/historic");
       const data = await response.json();
       setDummyArchive(data);
     } catch (error) {
