@@ -47,7 +47,7 @@ export default function Nav() {
           <Link to={`/login`}>
             <button
               className={
-                "login p-4 bg-midnightblue text-mustard hover:bg-mustard hover:text-midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
+                "login p-4 text-midnightblue bg-mustard hover:text-mustard hover:bg-midnightblue rounded-md px-3 py-2 text-sm font-medium mb-8 mr-1"
               }
             >
               Login
