@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./allLobby.css";
 import { HeartLike } from "./heartlike.jsx";
 
-
 const AllLobby = () => {
   const [cookies] = useCookies(["user"], ["user_id"]);
   const [lobbies, setLobbies] = useState();
@@ -39,33 +38,34 @@ const AllLobby = () => {
 
   return (
     <>
-      <h1 className="c-b "> Current Biddings </h1>
+      <h1 className="c-b"> Current Biddings </h1>
 
       <section className=" justify-center flex flex-wrap content-center.">
-
-  {lobbies?.length > 0 ? (
-    lobbies?.map((item, i) => {
-      return (
-        <div key={item?.id + item?.created_at} className="p-3 trending">
-        <div className="border trend-c p-2">
-          <p className="item-trend-name">{item?.name}</p>
-          <div className="object-cover">
-            <img className=" " src={item?.cover_lobby} alt={item?.name}/>
-          </div>
-          <p className="heart"> ♥ {item?.likes}</p>
-          <Link to={`/lobby/${item?.id}`} className="underline">
-            Lobby {item?.id}
-          </Link>
-        </div>
-      </div>
-      );
-    })
-  ) : (
-    <p>nothing yet</p>
-  )}
-</section>
-
-
+        {lobbies?.length > 0 ? (
+          lobbies?.map((item, i) => {
+            return (
+              <div key={item?.id + item?.created_at} className="p-3 trending">
+                <div className="border trend-c p-2">
+                  <p className="item-trend-name">{item?.name}</p>
+                  <div className="object-cover">
+                    <img
+                      className=" "
+                      src={item?.cover_lobby}
+                      alt={item?.name}
+                    />
+                  </div>
+                  <p className="heart"> ♥ {item?.likes}</p>
+                  <Link to={`/lobby/${item?.id}`} className="underline">
+                    Lobby {item?.id}
+                  </Link>
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <p>nothing yet</p>
+        )}
+      </section>
     </>
   );
 };
