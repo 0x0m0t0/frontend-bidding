@@ -148,7 +148,7 @@ const Profile = () => {
             className="min-w-32 text-2xl w-full justify-start"
             key={userInfo[0]?.email}
           >
-            Welcome {userInfo[0]?.name}
+            Welcome to your dashboard {userInfo[0]?.name}
           </h2>
         ) : (
           <p>Error fetching user account data</p>
