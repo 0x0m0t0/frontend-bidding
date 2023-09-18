@@ -38,10 +38,7 @@ const AllLobby = () => {
 
   return (
     <>
-
-      <h1 className="c-b"> Current Auctions </h1>
-
-
+      <h1 className="c-b"> Current Biddings </h1>
       <section className=" justify-center flex flex-wrap content-center.">
         {lobbies?.length > 0 ? (
           lobbies?.map((item, i) => {
