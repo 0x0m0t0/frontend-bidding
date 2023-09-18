@@ -138,7 +138,7 @@ const Lobby = () => {
     chatData();
   }, [check]);
 
-  // setInterval(chatData(), 2000);
+  setInterval(chatData(), 2000);
 
   if (endDate.end_at !== undefined) {
     setInterval(() => {
